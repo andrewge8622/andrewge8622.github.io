@@ -1,3 +1,4 @@
 theme: jekyll-theme-minimal
 title: Andrew Ge
 description: adventures of a nerd with too many ideas
+logo: {{ site.url }}/assets/microscope_PCB.png

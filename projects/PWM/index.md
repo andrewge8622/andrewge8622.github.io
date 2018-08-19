@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Analog PWM generator
-permalink: /analog-pwm-gen/
+permalink: /projects/analog-pwm-gen/
 ---
 
 # Analog PWM generator

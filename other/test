@@ -1,8 +1,12 @@
-<!DOCTYPE html>
-<html>
-<body>
+---
+layout: page
+title: Test
+permalink: /test/
+---
 
-<h1>TROLLOLOLOLOL</h1>
+## About
 
-</body>
-</html>
+This is a test page 
+.
+.
+.

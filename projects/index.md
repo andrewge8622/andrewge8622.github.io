@@ -5,7 +5,7 @@ permalink: /projects/
 ---
 
 # PROJECTS
-### Analog PWM fan controller
+### [Analog PWM fan controller](../PWM.md/)
 insert description here
 ### Boombox
 insert description here

@@ -7,7 +7,7 @@ permalink: /projects/
 # PROJECTS
 ### [Analog PWM fan controller](../PWM/)
 insert description here
-### Boombox
+### [Boombox](../boombox/)
 insert description here
-### Heartbeat Sensor
+### [Heartbeat Sensor](../hrsense/)
 insert description here

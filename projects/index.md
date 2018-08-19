@@ -1,12 +1,13 @@
 ---
-layout: page
-title: Test
+layout: default
+title: Projects
 permalink: /projects/
 ---
 
-## About
-
-This is a test page 
-.
-.
-.
+# PROJECTS
+### Analog PWM fan controller
+insert description here
+### Boombox
+insert description here
+### Heartbeat Sensor
+insert description here

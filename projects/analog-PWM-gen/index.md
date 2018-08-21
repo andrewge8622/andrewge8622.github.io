@@ -11,4 +11,15 @@ Over the course of ELE302 (popularly known at Princeton as Car lab), I discovere
 
 Of course, a function generator isn't something that I'll always have on hand, and I was curious about how I could go about generating a control signal without lugging around bench equipment everywhere. The classic solution, it would seem, is to just use a 555 timer. However, the results aren't super accurate, and that's also just boring. Instead, I decided to make an adjustable PWM generator with 3 stages of ICs
 
-# Square wave generator
+### Square waves (an astable multivibrator)
+
+### Integrator
+
+### Basic comparator
+
+### Putting it all together
+
+### Lessons learned
+
+* Don't just prop up fast components. Especially cheap ones. They will fall. (Insert link to broken fan here)
+* Sometimes, ICs will blow up. And sometimes, you'll never know why. Wear safety glasses kids.

@@ -12,7 +12,7 @@ Using ICs to make a square wave generator, integrator, and comparator, capable o
 
 <img src="../assets/boombox_still.PNG" alt="picture of the finished product" width="200" height="125">
 
-A personal boombox made with LM386 audio amps, MAX5456 logarithmic digipots, and a custom laser-cut acrylic enclosure.
+A personal boombox made with LM386 audio amps, MAX5456 logarithmic digipots, and a custom laser-cut acrylic enclosure. Also features a LED bar graph VU meter, and some nice lil buttons.
 
 ### [Heartbeat Sensor](/projects/hrsense/)
 

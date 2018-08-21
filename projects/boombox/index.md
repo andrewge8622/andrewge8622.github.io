@@ -14,7 +14,8 @@ Along the way, I found myself using the vaunted LM386, an audio amplifying IC. I
 <video width="320" height="240" controls>
   <source src="../../assets/boombox_feeling_good.mp4" type="video/mp4">
 Your browser does not support the video tag.
-</video>
+</video> <br> 
+<br>
 
 ### The Audio Amp
 

@@ -12,3 +12,13 @@ During my sophomore year, I spent a night in the hospital for unimportant reason
 45 is quite low for a heart rate, especially considering I'm not an athlete by any means. I've been wondering since then what my heart rate is like at night, and whether the fact that my HR was so low that night only due to dehydration/exhaustion/starvation/what have you.
 
 So of course I built a sensor to track it for me! Because buying a fitbit would be too easy.
+
+### Overview
+
+### Piezoelectric effect ELI5
+
+### Circuitry
+
+### Modding a webcam to see IR
+
+### Video processing with OpenCV

@@ -10,7 +10,7 @@ Using ICs to make a square wave generator, integrator, and comparator, capable o
 
 ### [Boombox](/projects/boombox/)
 
-<img src="../assets/boombox_still.PNG" alt="picture of the finished product" width="300" height="250">
+<img src="../assets/boombox_still.PNG" alt="picture of the finished product" width="400" height="250">
 
 A personal boombox made with LM386 audio amps, MAX5456 logarithmic digipots, and a custom laser-cut acrylic enclosure.
 

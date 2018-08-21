@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Heartbeat Sensor
-permalink: /hrsense/
+permalink: /projects/hrsense/
 ---
 
 # Heartbeat Sensor

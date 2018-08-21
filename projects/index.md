@@ -6,7 +6,7 @@ title: Projects
 # PROJECTS
 ### [Analog PWM fan controller](/projects/analog-PWM-gen/)
 insert description here
-### [Boombox](boombox/)
+### [Boombox](/projects/boombox/)
 insert description here
-### [Heartbeat Sensor](hrsense/)
+### [Heartbeat Sensor](/projects/hrsense/)
 insert description here

@@ -21,5 +21,6 @@ Of course, a function generator isn't something that I'll always have on hand, a
 
 ### Lessons learned
 
+* On an exam, you can probably assume your op-amp is ideal (tbt ELE203). In practice, you cannot.
 * Don't just prop up fast components. Especially cheap ones. They will fall. (Insert link to broken fan here)
 * Sometimes, ICs will blow up. And sometimes, you'll never know why. Wear safety glasses kids.

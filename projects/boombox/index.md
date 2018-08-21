@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Boombox
-permalink: /projects/boombox/
+permalink: boombox/
 ---
 
 #this is a test so far

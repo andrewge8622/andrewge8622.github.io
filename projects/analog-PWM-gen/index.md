@@ -44,7 +44,7 @@ The math behind the comparator is pretty trivial, so I’ll skip it. Just note t
     <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output">
   </div>
   <div class="column">
-    <li><a><img src="../../assets/PWM_75_output.PNG" alt="simulated output"></a>
+    <img src="../../assets/PWM_75_output.PNG" alt="simulated output">
 </div>
 
 ### Putting it all together

@@ -3,4 +3,5 @@ title: Andrew Ge
 description: amateur tinkerer, professional nerd
 logo: https://andrewge.me/assets/microscope_PCB.gif
 url: https://www.andrewge.me
+baseurl: https://www.andrewge.me
 enforce_ssl: andrewge.me

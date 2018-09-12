@@ -21,7 +21,7 @@ Your browser does not support the video tag.
 
 The LM386 is a class A/B amplifier, which gives it pretty minimal distortion (not that I know enough about audio to tell). It’s a finnicky, temperamental chip, but it can produce surprisingly clean (and extremely loud) audio if the right components are used. For much of my initial experimentation with this chip, I thought that my choice of components was the reason for the distorted, noisy audio signals I was hearing. However, I figured out that the issues I was facing could really be narrowed down to two sources: using cheap breadboards, and power supply noise. The cheap breadboards were easily addressed, but the power supply noise is something I still haven’t fully conquered: it’s not apparent when audio is playing, but when nothing is plugged in there’s an audible hum. 
 
-<img src="../../assets/schematic.png" alt="made in Eagle" width="1200" height="300">
+<img src="../../assets/schematic.png" alt="made in Eagle" width="1200" height="200">
 
 Anyways, here’s a breakdown of what the different accompanying parts are for:
 * C1 and C3 are power supply decoupling caps. The 0.1uF is pretty standard, the 100uF I found to work best just be trying different values. YMMV. 

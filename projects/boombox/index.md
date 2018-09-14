@@ -35,12 +35,37 @@ For a much more detailed explanation of how this amp works, [see here]( https://
 
 Here’s the final result!
 
-<img src="../../assets/SpeakerBoard.jpg" alt="assembled board" width="500" height="400">
-
+<img src="../../assets/SpeakerBoard.jpg" alt="assembled board" width="300" height="200">
 
 ### The Volume Board
 
+The vertical, central board in the boombox serves a lot of different functions: it controls the outgoing volume to the audio amplifier boards, distributes power through the boombox, and also contains an LED VU meter to indicate approximate volume range to the user. In addition to this, it has two rows of header sockets onto which a smaller button board is mounted. I won't dedicate a section to the button board, since it's literally just 5 buttons and some header pins, but here's a picture of it.
+
+<img src="../../assets/ButtonBoard.PNG" alt="modeled in Inventor" width="300" height="200">
+
+#### Digipots
+
+The button boards are connected to the MAX5456 chip, which is a digital potentiometer actually specifically designed for use with audio. It has a logarithmic taper, as opposed to linear, which means that the volume adjustment is much more intuitive for hearing (human aural volume is sensed logarithmically). In addition, it has a mute button, and balance function (to shift the sound distribution from side-to-side). Unlike many other digipots, the MAX5456 (and 5457) is incremented not through SPI or I2C, but through a push button interface. It even includes automatic debouncing! All around, it's fantastic for volume control applications. 
+
+The MAX5456 is actually the first chip I've had to put on a board without first testing its function (the package is a QSSOP, which I couldn't find a breakout board for). Needless to say, I was extremely excited when it first worked.
+
+<video width="320" height="240" controls>
+  <source src="../../assets/VolumeTest.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> <br> 
+<br>
+
+#### VU meter
+
+I knew from the beginning of this project that I wanted some indicator of volume. One naive solution would be to just connect the LM3914 (LED bar graph driver) directly to one of the audio out lines. However this would a) give a wildly variable volume level b) only represent one channel, which would be inaccurate when using the balance function and c) load the audio line, with potential impact on volume/quality. Instead, I added *another* MAX5456 chip, hooked up to the same button controls, and instead fed it a constant voltage level. This way, the output would literally just be voltage divided down, giving a good input to the LED bar graph driver, which is essentially a ladder of comparators. In order to overcome the balance issue, I connected the left and right outputs, which has the effect of averaging the two voltages. This was a somewhat nerve-racking design choice, given that I had only ordered 3 of the chip, but I was able to assemble the board without needing the spare.
+
+<img src="../../assets/AssembledBoard.jpg" alt="finished board!" width="400" height="300">
+
+One thing I will note is that the LM3914 uses a linear sweep of comparators to determine which LEDs to drive, whereas my volume control unit is logarithmic. This does mean that there isn't a 1-to-1 correspondance between button presses and LED bars lighting up. In future versions, I might basically make my own version of the LM3914, with logarithmic references, but for now I'm satisfied with the outcome. The visible meter is a 10-segment white LED bar graph. For any details about the setup, you can consult the [schematic](insert link to schematic) I made. There were a few last minute adjustments. The 10 uF bulk caps were switched to 4.7uF because those were the largest ceramics I had. I accidentally used the ceramic cap footprint for the 10uF power supply decoupling cap, so I squeezed in an electrolytic instead. Finally, a few of the SMD passives are 0603 packages instead of 0805. You might notice that I have a mix of SMD and THD parts. That's primarily due to part availability. In an ideal world, I'd only use SMD, but since I had to buy each individual SMD valued part I was looking for, and several of my ICs were through hole anyways, I opted to only use SMD for the more sensitive, space-constrained parts (e.g. the audio handling). 
+
 ### Laser Cutting the Enclosure
+
+ 
 
 ### Lessons Learned
 * When working with sensitive analog circuitry, a good breadboard is infinitely better than a cheap one. And a PCB is even better

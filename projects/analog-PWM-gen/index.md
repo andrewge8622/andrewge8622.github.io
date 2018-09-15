@@ -58,7 +58,7 @@ The math behind the comparator is pretty trivial, so I’ll skip it. Just note t
 
 While this of course uses more components (and more math) than a simple PWM signal generated from a 555 timer, I personally have found it to be more useful, as the duty cycle and frequency can be easily adjusted with just potentiometers, and I (hopefully) actually understand what’s going on!
 
-<video width="320" height="240" controls muted>
+<video width="320" controls muted>
   <source src="../../assets/fan_pwm_circuit.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

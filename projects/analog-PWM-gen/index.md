@@ -45,6 +45,10 @@ The math behind the comparator is pretty trivial, so I’ll skip it. Just note t
       <figcaption>12.5% duty cycle</figcaption>
     </figure>
     <figure>
+      <img src="../../assets/PWM_center_output.PNG" alt="simulated output" width="400" height="200"/>
+      <figcaption>50% duty cycle</figcaption>
+    </figure>
+    <figure>
       <img src="../../assets/PWM_75_output.PNG" alt="simulated output" width="400" height="200"/>
       <figcaption>75% duty cycle</figcaption>
     </figure>

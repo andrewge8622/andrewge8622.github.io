@@ -31,7 +31,7 @@ Given that I needed to generate a PWM signal of 20 kHz, this gave me a half-peri
 The theory behind the integrator stage is fairly simple mathematically. There are a couple ways to think about it, but this is the way that makes the most sense to me.
 First off, the current through R1 is fairly obvious, as it’s just Vin/12K. Taking the assumption that no current flows into the input of the op-amp, all current through R1 must also flow through C1. Since we have a virtual ground at the inverting input, we can define current through C1 as C * dVout/dt. Thus Vin/R1 = -C1 * dVout/dt. Vout = 1/RC * integral of Vin dt. Voila! Integration! If we simply consider this for a constant Vin (considering the square wave as piecewise DC chunk), we get that Vout = -t/RC. Thus our square wave will instead generate ramps, and if the period is short enough, we’ll just get triangle waves!
 
-<img src="../../assets/triangle_wave_output_NEW.PNG" alt="simulated output" width="1000" height="200">
+<img src="../../assets/triangle_wave_output_NEW.PNG" alt="simulated output" width="1000" height="300">
 
 ### Basic comparator
 

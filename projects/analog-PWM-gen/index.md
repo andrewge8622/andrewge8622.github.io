@@ -58,10 +58,15 @@ The math behind the comparator is pretty trivial, so I’ll skip it. Just note t
 
 While this of course uses more components (and more math) than a simple PWM signal generated from a 555 timer, I personally have found it to be more useful, as the duty cycle and frequency can be easily adjusted with just potentiometers, and I (hopefully) actually understand what’s going on!
 
+<video width="320" height="240" controls muted>
+  <source src="../../assets/fan_pwm_circuit.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+
 ### Lessons learned
 
 * On an exam, you can probably assume your op-amp is ideal (tbt ELE203). In practice, you cannot.
-* Don't just prop up fast components. Especially cheap ones. They will fall. (Insert link to broken fan here)
+* Don't just prop up fast components. Especially cheap ones. They will fall, and they will break.
 * Sometimes, ICs will blow up. And sometimes, you'll never know why. Wear safety glasses kids.
 * It's a good idea to define initial constraints in LTSpice
 * LTSpice can export a waveform as text, but to import it back into LTSpice as PWL, you need to manually remove the header -_-

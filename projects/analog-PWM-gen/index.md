@@ -63,6 +63,8 @@ While this of course uses more components (and more math) than a simple PWM sign
 Your browser does not support the video tag.
 </video> 
 
+There are a few issues I hope to address in the future, namely the fact that there appears to be a minimum/maximum duty cycle before the output simply is low or high. I suspect this may have something to do with the fact that the op-amps are not rail-to-rail. The PWM edge also has some non-ideal settling that may be due to stray capacitance, so I plan to move this project onto a higher quality breadboard, or possibly perfboard. Overall however, this drives the fan as desired, so I'm satisfied. 
+
 ### Lessons learned
 
 * On an exam, you can probably assume your op-amp is ideal (tbt ELE203). In practice, you cannot.

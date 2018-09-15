@@ -35,7 +35,7 @@ For a much more detailed explanation of how this amp works, [see here]( https://
 
 Here’s the final result!
 
-<img src="../../assets/SpeakerBoard.jpg" alt="assembled board" width="300" height="200">
+<img src="../../assets/4_assembled_boards.jpeg" alt="assembled board" width="300" height="300">
 
 ### The Volume Board
 
@@ -69,10 +69,15 @@ From the beginning of this project, I had already decided that I wanted the proj
 In the past, I've tried to make enclosures with 3d printing (which was too slow, prone to errors, and warped when cooling), as well as laser cut plates, hot glued together (had weak joints and poor aesthetics). This time, I decided to make an enclosure that required minimal assembly and would also look good. I chose clear acrylic, and designed an enclosure that conceivably could be held together with a single standoff (though I used 8 for strength and symmetry). 
 
 The first step in my design process was to actually model all of the parts that would be going into the enclosure, as I didn't want to end up with an enclosure that didn't fit all the boards. Some parts, like the momentary buttons, were relatively easy to model, whereas others, like the speakers, were comparatively harder. Thanksfully, Eagle has a new feature that allows exporting boards into Fusion360, from which it was simple to move the models to Inventor. In the past I've tried just guesstimating how big an enclosure needs to be, which inevitably leads to either cramped components or wasted material: having a good 3d model made a world of difference, and I'll definitely go this route in the future. I did a few test cuts on scrap material to check if the parts fit as expected (the speakers in particular I was unsure of), and surprisingly everything checked out! With all parts modelled, designing the enclosure was simply a matter of placing the boards and speakers, figuring out the wall sizes needed, and adding cutouts. The walls of the enclosure are cut to fit into each other, and have tabs on the top and bottom that slot into the corresponding plates. 
+
+<img src="../../assets/partially_assembled.jpeg" alt="finished board!back and bottom plates assembled" width="500" height="300">
  
 As a segue, I love laser cutting as a method of producing enclosures/fixtures. While 3d printing allows for complex shapes and minimizes external hardware, laser cutting is orders of magnitude faster, requires no consideration for shrinkage/warping/liftoff/etc. (at least for hobbyist level extruded 3d printers, this has been a consistent problem), and is stunningly accurate. Out of curiosity, I designed my tabs with almost no clearance, and was amazed to find that everything still fit together. Here's a picture of the final assembly in CAD and in reality.
 
-
+<div id="images">
+      <img src="../../assets/assembled_boombox.png" alt="simulated output" width="500" height="300"/>
+      <img src="../../assets/CAD_model.PNG" alt="simulated output" width="500" height="300"/>
+</div>
 
 ### Lessons Learned
 * When working with sensitive analog circuitry, a good breadboard is infinitely better than a cheap one. And a PCB is even better

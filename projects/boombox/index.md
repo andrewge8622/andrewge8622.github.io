@@ -74,10 +74,8 @@ The first step in my design process was to actually model all of the parts that 
  
 As a segue, I love laser cutting as a method of producing enclosures/fixtures. While 3d printing allows for complex shapes and minimizes external hardware, laser cutting is orders of magnitude faster, requires no consideration for shrinkage/warping/liftoff/etc. (at least for hobbyist level extruded 3d printers, this has been a consistent problem), and is stunningly accurate. Out of curiosity, I designed my tabs with almost no clearance, and was amazed to find that everything still fit together. Here's a picture of the final assembly in CAD and in reality.
 
-<div id="images">
       <img src="../../assets/assembled_boombox.png" alt="simulated output" width="500" height="300"/>
       <img src="../../assets/CAD_model.PNG" alt="simulated output" width="500" height="300"/>
-</div>
 
 ### Lessons Learned
 * When working with sensitive analog circuitry, a good breadboard is infinitely better than a cheap one. And a PCB is even better

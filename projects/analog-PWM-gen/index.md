@@ -39,13 +39,15 @@ First off, the current through R1 is fairly obvious, as it’s just Vin/12K. Tak
 
 The math behind the comparator is pretty trivial, so I’ll skip it. Just note that the comparator, coupled with the triangle wave, will basically take the peaks of the positive triangles, and turn those into rectangular pulses. Or, finally, PWM signals! Thus the duty cycle directly correlates to the reference voltage of the comparator.
 
-<div class="row">
-  <div class="column">
-    <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output">
-  </div>
-  <div class="column">
-    <img src="../../assets/PWM_75_output.PNG" alt="simulated output">
-  </div>
+<div id="images">
+    <figure>
+      <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output" width="400" height="200"/>
+      <figcaption>12.5% duty cycle</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/PWM_75_output.PNG" alt="simulated output" width="400" height="200"/>
+      <figcaption>75% duty cycle</figcaption>
+    </figure>
 </div>
 
 ### Putting it all together

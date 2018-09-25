@@ -20,5 +20,13 @@ So of course I built a sensor to track it for me! Because buying a fitbit would 
 ### Circuitry
 
 ### Modding a webcam to see IR
+Humans can only see a very limited portion of the EM spectrum (INSERT DIAGRAM?). One of the jobs of those who create image sensors is to limit digital images to what humans can see (otherwise pictures wouldn't reflect what we see with our eyes). Evidnetly most commercial CMOS image sensors pick up infrared light quite well, which needs to be filtered out. In order to do this, almost all commercial webcams, cell phones, or cameras include infrared light filters, which can come in many different forms. 
+Since the goal of this project is to pick up infrared light flashes, this is obviously a problem. In order to fix this, I took a brand new Microsoft Lifecam HD-3000, and proceeded to crack it open so I could identify and remove the IR filter. 
+
+(Insert some images here with captions illustrating the disassembly process)
+
+In addition, in order to reduce the amount of signal processing needed downstream, I added a visible light filter to the webcam. Now *only* IR light would be picked up, which at night meant pretty much only the IR LED on my sensor would cause visible flashes. 
+
+(Insert quick video sample of flashes)
 
 ### Video processing with OpenCV

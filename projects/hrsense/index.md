@@ -33,17 +33,17 @@ Next, I amplified the input by a factor of 31 (the pulse amplitude was around 16
 
 ### Later Design Decisions
 
-#### Voltage Regulator
+##### Voltage Regulator
 
 In early tests, I had the convenience of using a power supply. Of course, while actually running my tests, I would have to use a battery, which would gradually reduce voltage as it drained. While hypothetically, the biasing, amplification, and comparator portions all should have been proportional, and thus should have functioned the same as voltage fell, the LED switching would have been much more severely affected (brightness would have been inconsistent). I ended up adding a small linear regulator, to consistently put out 5V for all of the other components. Specifically, I chose the AP2204K, as it had a really low dropout (100mV), and would thus allow the longest run time.
 
-#### Op Amps
+##### Op Amps
 Normally I would have just used any 3 op amps that I happened to have on hand, but after reading the datasheet for my MOSFET (2N7000), I found that the gate threshold voltage could be as high as 3V. Given that a typical op amp can easily have a max range of VDD-1.5 or worse, this would give me a a margin of only 0.5V. I didn't feel comfortable with that, so I chose a rail-to-rail op amp (OPA342) for my comparator stage. The buffer and amp stage were less critical, so I just went with a LM358 dual op amp chip to save space.
 
-#### Layout
+##### Layout
 This board only has components on one side, all of which are SMD, because I didn't want to have any chips pressed against my skin. I don't imagine human tissue is a fantastic thermal dissipator for electronics. However, this did increase component density, and make the routing more difficult. I was actually somewhat surprised (but pleased) that I was able to complete the layout in just 2 layers, without breaking the ground plane.
 
-#### Battery Board
+##### Battery Board
 I created an entirely separate board for the aforementioned chunky batteries, as having two boards seemed more aesthetically symmetric at the time. If I do a respin with smaller batteries, I might move them onto the same board the second time around. I actually ran into a problem with the battery retainers I bought: once the glider was inserted into the retainer, it was impossible to remove them again. This was, of course, highly irritating. I ended up throwing together a quick CAD model of the retainer/battery, and laser cut my own glider with some leftover acrylic I had. It was precise enough that it could be held in place by the retainer, without getting stuck.
 
 ### Modding a webcam to see IR
@@ -63,6 +63,13 @@ In addition, in order to reduce the amount of signal processing needed downstrea
 
 ### Results
 
+All in all, I got about 5.5 hours of data (needless to say, I did not get a lot of sleep that night). After pushing it through the C++ code I wrote, and plotting it in MATLAB, I obtained the following plot.
+
+(PLOT)
+
+Immediately, I noticed that there seemed to be some errant measurements. The excursions past 120 and below 35 BPM, for instance, mostly look to be a single bad reading skewing the rolling average I used. Every once in a while, a small rise up is observable, which my pre-med roommate tells me likely correlates with REM stages. Overall, my heart rate seems to hover between 40 and 50, which seems to be in agreement with my short stay in the hospital. While this seems somewhat low, I asked my dad (a cardiologist), and he assures me that I'll be fine. Overall, I'm pretty happy with how the data turned out, and with the general success of the project. I'm particularly happy that I managed to get the board working on the first spin, especially given that I hadn't used over half of the components on my breadboarded prototype. Note to self: I should made some SMD breakout boards for future prototyping.
+
 ### Potential Improvements
+
 
 ### Resources

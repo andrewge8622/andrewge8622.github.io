@@ -15,7 +15,7 @@ A personal boombox made with LM386 audio amps, MAX5456 logarithmic digipots, and
 
 <img src="../assets/HeartbeatSensor.png" alt="picture of the laid out board" width="150" height="125">
 
-A "wearable" intended to flash a high power IR LED in tandem with my pulse. Detection with a piezo pickup, amplification/filtering with various ICs, built onto a compact PCB. Processing of pulse done with a modded webcam and OpenCV (work in progress)
+A "wearable" intended to flash a high power IR LED in tandem with my pulse. Detection with a piezo, amplification/filtering with various ICs, built onto a compact PCB. Processing of pulse done with a modded webcam and OpenCV.
 
 ### [Analog PWM fan controller](/projects/analog-PWM-gen/)
 

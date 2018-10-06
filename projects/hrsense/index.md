@@ -15,6 +15,8 @@ So of course I built a sensor to track it for me! Because buying a Fitbit would 
 
 ### Overview
 
+<img src="../../assets/comparator_transparent.png" alt="the circuit" width="500" height="200">
+
 The sensor uses a small piezo to detect heart rate when strapped to my finger. It uses two custom PCBs, worn around the wrist. One is used just for batteries. The other collects the voltage from the piezo, does some basic amplification/thresholding, and triggers a high power infrared LED when a pulse is detected. This infrared flash isn't visible to the human eye, so it won't bother me while I'm trying to sleep, but the signal can be picked up by a modified webcam. Storing 6+ hours of footage and analyzing it manually sounds like an actual punishment, so instead I wrote a basic C++ program using OpenCV to record light intensity in each frame. I then used a combination of C++ and MATLAB to extract pulses from the light intensity data, and plot it across the time I spent asleep.
 
 ### Early Design Decisions
@@ -38,13 +40,15 @@ Next, I amplified the input by a factor of 31 (the pulse amplitude was around 16
 In early tests, I had the convenience of using a power supply. Of course, while actually running my tests, I would have to use a battery, which would gradually reduce voltage as it drained. While hypothetically, the biasing, amplification, and comparator portions all should have been proportional, and thus should have functioned the same as voltage fell, the LED switching would have been much more severely affected (brightness would have been inconsistent). I ended up adding a small linear regulator, to consistently put out 5V for all of the other components. Specifically, I chose the AP2204K, as it had a really low dropout (100mV), and would thus allow the longest run time.
 
 ##### Op Amps
-Normally I would have just used any 3 op amps that I happened to have on hand, but after reading the datasheet for my MOSFET (2N7000), I found that the gate threshold voltage could be as high as 3V. Given that a typical op amp can easily have a max range of VDD-1.5 or worse, this would give me a a margin of only 0.5V. I didn't feel comfortable with that, so I chose a rail-to-rail op amp (OPA342) for my comparator stage. The buffer and amp stage were less critical, so I just went with a LM358 dual op amp chip to save space.
+Normally I would have just used any 3 op amps that I happened to have on hand, but after reading the datasheet for my MOSFET (2N7000), I found that the gate threshold voltage could be as high as 3V. Given that a typical op amp can easily have a max range of VDD-1.5 or worse, this would give me a a margin of only 0.5V. I didn't feel comfortable with that, so I chose a rail-to-rail op amp (TLV2461) for my comparator stage. The buffer and amp stage were less critical, so I just went with a LM358 dual op amp chip to save space.
 
 ##### Layout
 This board only has components on one side, all of which are SMD, because I didn't want to have any chips pressed against my skin. I don't imagine human tissue is a fantastic thermal dissipator for electronics. However, this did increase component density, and make the routing more difficult. I was actually somewhat surprised (but pleased) that I was able to complete the layout in just 2 layers, without breaking the ground plane.
 
 ##### Battery Board
 I created an entirely separate board for the aforementioned chunky batteries, as having two boards seemed more aesthetically symmetric at the time. If I do a respin with smaller batteries, I might move them onto the same board the second time around. I actually ran into a problem with the battery retainers I bought: once the glider was inserted into the retainer, it was impossible to remove them again. This was, of course, highly irritating. I ended up throwing together a quick CAD model of the retainer/battery, and laser cut my own glider with some leftover acrylic I had. It was precise enough that it could be held in place by the retainer, without getting stuck.
+
+The battery board also gave me some unique grief in debugging. When I was first trying to power the circuits, for some reason my voltage was only ~1.8V, rather than 6. After about an hour of confusedly probing the board, the batteries, and repeatedly checking the schematic, I found the problem. When designing the battery board, I left a contact for the battery on the board itself (the other side of the battery would contact the retainer). However, I forgot to consider that the soldermask has a thickness of around 0.8 mils. This tiny thickness was preventing contact between my battery and my board, and was in fact forming a parallel plate capacitor of about 43.6 pF. To fix the issue, I just melted on enough solder to make the contact rise above the soldermask, and suddenly the board worked!
 
 ### Modding a webcam to see IR
 

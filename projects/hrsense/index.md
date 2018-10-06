@@ -33,9 +33,17 @@ Next, I amplified the input by a factor of 31 (the pulse amplitude was around 16
 
 ### Later Design Decisions
 
+#### Voltage Regulator
+
 In early tests, I had the convenience of using a power supply. Of course, while actually running my tests, I would have to use a battery, which would gradually reduce voltage as it drained. While hypothetically, the biasing, amplification, and comparator portions all should have been proportional, and thus should have functioned the same as voltage fell, the LED switching would have been much more severely affected (brightness would have been inconsistent). I ended up adding a small linear regulator, to consistently put out 5V for all of the other components. Specifically, I chose the AP2204K, as it had a really low dropout (100mV), and would thus allow the longest run time.
+
+#### Op Amps
 Normally I would have just used any 3 op amps that I happened to have on hand, but after reading the datasheet for my MOSFET (2N7000), I found that the gate threshold voltage could be as high as 3V. Given that a typical op amp can easily have a max range of VDD-1.5 or worse, this would give me a a margin of only 0.5V. I didn't feel comfortable with that, so I chose a rail-to-rail op amp (OPA342) for my comparator stage. The buffer and amp stage were less critical, so I just went with a LM358 dual op amp chip to save space.
+
+#### Layout
 This board only has components on one side, all of which are SMD, because I didn't want to have any chips pressed against my skin. I don't imagine human tissue is a fantastic thermal dissipator for electronics. However, this did increase component density, and make the routing more difficult. I was actually somewhat surprised (but pleased) that I was able to complete the layout in just 2 layers, without breaking the ground plane.
+
+#### Battery Board
 I created an entirely separate board for the aforementioned chunky batteries, as having two boards seemed more aesthetically symmetric at the time. If I do a respin with smaller batteries, I might move them onto the same board the second time around. I actually ran into a problem with the battery retainers I bought: once the glider was inserted into the retainer, it was impossible to remove them again. This was, of course, highly irritating. I ended up throwing together a quick CAD model of the retainer/battery, and laser cut my own glider with some leftover acrylic I had. It was precise enough that it could be held in place by the retainer, without getting stuck.
 
 ### Modding a webcam to see IR
@@ -50,3 +58,11 @@ In addition, in order to reduce the amount of signal processing needed downstrea
 (Insert quick video sample of flashes)
 
 ### Video processing with OpenCV
+
+[OpenCV](https://opencv.org/) is an open source library for computer vision, with tons of different features. It offers interfaces in a variety of languages, of which I opted for C++ to refresh my memory. The installation process was quite an ordeal, but I managed to get through it using [a variety](https://www.learnopencv.com/install-opencv3-on-windows/) [of different](https://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html) resources. I initially intended to use blob tracking to locate the flashing LED, and started on some basic tutorials. However, after viewing test footage of my setup, I realized that there was a much simpler solution (that hopefully had less latency). Because I was trying to record these flashes while sleeping (e.g. at night), there weren't really any sources of IR light other than the flashes. Thus I could simply measure the average brightness of the entire frame, and assuming the flash occupied enough of the screen, the average would rise with the pulses. This was fairly simple to code, but you can view my code on github (add link here), as well as the code I used to identify the pulses, if you're interested. Armed with fresh batteries, my modded webcam, and my newly assembled boards, I nervously went to sleep.
+
+### Results
+
+### Potential Improvements
+
+### Resources

@@ -102,7 +102,7 @@ In addition, in order to reduce the amount of signal processing needed downstrea
 
 All in all, I got about 5.5 hours of data (needless to say, I did not get a lot of sleep that night). After pushing it through the C++ code I wrote, and plotting it in MATLAB, I obtained the following plot.
 
-<img src="../../assets/BPMgraph.png" alt="my heartbeat while sleeping" width="1000" height="400">
+<img src="../../assets/BPMgraph.png" alt="my heartbeat while sleeping" width="1000" height="300">
 
 Immediately, I noticed that there seemed to be some errant measurements. The excursions past 120 and below 35 BPM, for instance, mostly look to be a single bad reading skewing the rolling average I used. Every once in a while, a small rise up is observable, which my pre-med roommate tells me likely correlates with REM stages. Overall, my heart rate seems to hover between 40 and 50, which seems to be in agreement with my short stay in the hospital. While this seems somewhat low, I asked my dad (a cardiologist), and he assures me that I'll be fine. Overall, I'm pretty happy with how the data turned out, and with the general success of the project. I'm particularly happy that I managed to get the board working on the first spin, especially given that I hadn't used over half of the components on my breadboarded prototype. Note to self: I should made some SMD breakout boards for future prototyping.
 

@@ -114,5 +114,3 @@ While for now I'm going to move on to other projects, if I were to come back to 
 * Optimize the layout further. In an ideal world, I'd love to make this on a flex board that could truly wrap around the wrist
 * Realistically, the piezo is not the best method for picking up from a finger. I'd like to explore either reading from the wrist, or using more traditional pulse-ox methods
 * I enjoyed the IR LED method of transferring data but it requires line of sight. I would use either RF transmission, or local storage of data, either of which would require a microcontroller
-
-### Resources

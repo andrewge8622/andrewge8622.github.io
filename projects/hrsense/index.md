@@ -61,8 +61,10 @@ The battery board also gave me some unique grief in debugging. When I was first 
 <img src="../../assets/battery_board.jpg" alt="the completed board" width="300" height="200">
 
 ### Modding a webcam to see IR
-
+<figure>
 <img src="../../assets/EM_spectrum.png" alt="the EM spectrum" width="500" height="200">
+  <figcaption>the EM spectrum, with visible light blown up</figcaption>
+</figure>
 
 Humans can only see a very limited portion of the EM spectrum. One of the jobs of those who create image sensors is to limit digital images to what humans can see (otherwise pictures wouldn't reflect what we see with our eyes). Evidently most commercial CMOS image sensors pick up infrared light quite well, which needs to be filtered out. In order to do this, almost all commercial webcams, cell phones, or cameras include infrared light filters, which can come in many different forms. 
 Since the goal of this project is to pick up infrared light flashes, this is obviously a problem. In order to fix this, I took a brand new Microsoft Lifecam HD-3000, and proceeded to crack it open so I could identify and remove the IR filter. 
@@ -89,7 +91,7 @@ In addition, in order to reduce the amount of signal processing needed downstrea
 [OpenCV](https://opencv.org/) is an open source library for computer vision, with tons of different features. It offers interfaces in a variety of languages, of which I opted for C++ to refresh my memory. The installation process was quite an ordeal, but I managed to get through it using [a variety](https://www.learnopencv.com/install-opencv3-on-windows/) [of different](https://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html) resources. I initially intended to use blob tracking to locate the flashing LED, and started on some basic tutorials. However, after viewing test footage of my setup, I realized that there was a much simpler solution (that hopefully had less latency). Because I was trying to record these flashes while sleeping (e.g. at night), there weren't really any sources of IR light other than the flashes. Thus I could simply measure the average brightness of the entire frame, and assuming the flash occupied enough of the screen, the average would rise with the pulses. This was fairly simple to code, but you can view my code on [github](https://github.com/andrewge8622), as well as the code I used to identify the pulses, if you're interested. Armed with fresh batteries, my modded webcam, and my newly assembled boards, I nervously went to sleep.
 
 <video width="320" controls muted>
-  <source src="../../assets/SUCCESSFUL_TEST.mp4" type="video/mp4">
+  <source src="../../assets/SUCCESSFUL TEST.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 

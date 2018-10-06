@@ -13,9 +13,13 @@ During my sophomore year, I spent a night in the hospital after I passed out fro
 
 So of course I built a sensor to track it for me! Because buying a Fitbit would be too easy.
 
-### Overview
 
-<img src="../../assets/comparator_transparent.png" alt="the circuit" width="500" height="200">
+<video width="320" controls muted>
+  <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+
+### Overview
 
 The sensor uses a small piezo to detect heart rate when strapped to my finger. It uses two custom PCBs, worn around the wrist. One is used just for batteries. The other collects the voltage from the piezo, does some basic amplification/thresholding, and triggers a high power infrared LED when a pulse is detected. This infrared flash isn't visible to the human eye, so it won't bother me while I'm trying to sleep, but the signal can be picked up by a modified webcam. Storing 6+ hours of footage and analyzing it manually sounds like an actual punishment, so instead I wrote a basic C++ program using OpenCV to record light intensity in each frame. I then used a combination of C++ and MATLAB to extract pulses from the light intensity data, and plot it across the time I spent asleep.
 
@@ -27,6 +31,8 @@ Probably the biggest decider of form factor and op-amp circuit design was the fa
 For the sake of not needing even more batteries, I opted to use single supply designs. For those unfamiliar, this means that my op-amp circuits will swing from (approximately) ground to VDD, rather than -VDD to VDD.
 
 ### Circuitry
+
+<img src="../../assets/piezo.jpg" alt="a piezo element" width="500" height="200">
 
 The sensing element is the same type that is often used for guitar pickups or high frequency speakers. It uses the [piezoelectric effect](https://www.nanomotion.com/piezo-ceramic-motor-technology/piezoelectric-effect/), which allows translation between mechanical strain and voltage. Based on my early experimentation, the piezo had a DC offset, so I first put a decoupling capacitor in line with the piezo, and then biased it to half of the supply voltage. That way, the piezo output was centered at VDD/2, allowing amplification in both "directions" even with the single supply. One note for anyone trying to similar projects: I had to bias the piezo with extremely large resistors (in my case, 6.8MΩ for each resistor). I'm not certain, but I think this has something to do with the high impedance of the sensor itself. In any case, using these massive resistors was uniquely interesting, as they were large enough that the measurements picked up by an oscilloscope were warped, as the probe itself probably had an input resistance of 1MΩ. 
 
@@ -48,28 +54,50 @@ This board only has components on one side, all of which are SMD, because I didn
 ##### Battery Board
 I created an entirely separate board for the aforementioned chunky batteries, as having two boards seemed more aesthetically symmetric at the time. If I do a respin with smaller batteries, I might move them onto the same board the second time around. I actually ran into a problem with the battery retainers I bought: once the glider was inserted into the retainer, it was impossible to remove them again. This was, of course, highly irritating. I ended up throwing together a quick CAD model of the retainer/battery, and laser cut my own glider with some leftover acrylic I had. It was precise enough that it could be held in place by the retainer, without getting stuck.
 
+<img src="../../assets/glider.jpg" alt="the laser cut glider + battery" width="500" height="200">
+
 The battery board also gave me some unique grief in debugging. When I was first trying to power the circuits, for some reason my voltage was only ~1.8V, rather than 6. After about an hour of confusedly probing the board, the batteries, and repeatedly checking the schematic, I found the problem. When designing the battery board, I left a contact for the battery on the board itself (the other side of the battery would contact the retainer). However, I forgot to consider that the soldermask has a thickness of around 0.8 mils. This tiny thickness was preventing contact between my battery and my board, and was in fact forming a parallel plate capacitor of about 43.6 pF. To fix the issue, I just melted on enough solder to make the contact rise above the soldermask, and suddenly the board worked!
+
+<img src="../../assets/battery_board.jpg" alt="the completed board" width="500" height="200">
 
 ### Modding a webcam to see IR
 
-Humans can only see a very limited portion of the EM spectrum (INSERT DIAGRAM?). One of the jobs of those who create image sensors is to limit digital images to what humans can see (otherwise pictures wouldn't reflect what we see with our eyes). Evidently most commercial CMOS image sensors pick up infrared light quite well, which needs to be filtered out. In order to do this, almost all commercial webcams, cell phones, or cameras include infrared light filters, which can come in many different forms. 
+<img src="../../assets/EM_spectrum.png" alt="the EM spectrum" width="500" height="200">
+
+Humans can only see a very limited portion of the EM spectrum. One of the jobs of those who create image sensors is to limit digital images to what humans can see (otherwise pictures wouldn't reflect what we see with our eyes). Evidently most commercial CMOS image sensors pick up infrared light quite well, which needs to be filtered out. In order to do this, almost all commercial webcams, cell phones, or cameras include infrared light filters, which can come in many different forms. 
 Since the goal of this project is to pick up infrared light flashes, this is obviously a problem. In order to fix this, I took a brand new Microsoft Lifecam HD-3000, and proceeded to crack it open so I could identify and remove the IR filter. 
 
-(Insert some images here with captions illustrating the disassembly process)
+<div id="images">
+    <figure>
+      <img src="../../assets/webcam.jpg" alt="the webcam, minus front cover" width="400" height="200"/>
+      <figcaption>the webcam, minus front cover</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/cmos_sensor.jpg" alt="the CMOS sensor" width="400" height="200"/>
+      <figcaption>the CMOS image sensor</figcaption>
+    </figure>
+    <figure>
+      <img src="../../assets/IR_filter.jpg" alt="IR filter" width="400" height="200"/>
+      <figcaption>The IR filter is identifiable by its red tint</figcaption>
+    </figure>
+</div>
 
 In addition, in order to reduce the amount of signal processing needed downstream, I added a visible light filter to the webcam. Now *only* IR light would be picked up, which at night meant pretty much only the IR LED on my sensor would cause visible flashes. 
 
-(Insert quick video sample of flashes)
-
 ### Video processing with OpenCV
 
-[OpenCV](https://opencv.org/) is an open source library for computer vision, with tons of different features. It offers interfaces in a variety of languages, of which I opted for C++ to refresh my memory. The installation process was quite an ordeal, but I managed to get through it using [a variety](https://www.learnopencv.com/install-opencv3-on-windows/) [of different](https://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html) resources. I initially intended to use blob tracking to locate the flashing LED, and started on some basic tutorials. However, after viewing test footage of my setup, I realized that there was a much simpler solution (that hopefully had less latency). Because I was trying to record these flashes while sleeping (e.g. at night), there weren't really any sources of IR light other than the flashes. Thus I could simply measure the average brightness of the entire frame, and assuming the flash occupied enough of the screen, the average would rise with the pulses. This was fairly simple to code, but you can view my code on github (add link here), as well as the code I used to identify the pulses, if you're interested. Armed with fresh batteries, my modded webcam, and my newly assembled boards, I nervously went to sleep.
+[OpenCV](https://opencv.org/) is an open source library for computer vision, with tons of different features. It offers interfaces in a variety of languages, of which I opted for C++ to refresh my memory. The installation process was quite an ordeal, but I managed to get through it using [a variety](https://www.learnopencv.com/install-opencv3-on-windows/) [of different](https://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html) resources. I initially intended to use blob tracking to locate the flashing LED, and started on some basic tutorials. However, after viewing test footage of my setup, I realized that there was a much simpler solution (that hopefully had less latency). Because I was trying to record these flashes while sleeping (e.g. at night), there weren't really any sources of IR light other than the flashes. Thus I could simply measure the average brightness of the entire frame, and assuming the flash occupied enough of the screen, the average would rise with the pulses. This was fairly simple to code, but you can view my code on [github](https://github.com/andrewge8622), as well as the code I used to identify the pulses, if you're interested. Armed with fresh batteries, my modded webcam, and my newly assembled boards, I nervously went to sleep.
+
+<video width="320" controls muted>
+  <source src="../../assets/SUCCESSFUL_TEST.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
 
 ### Results
 
 All in all, I got about 5.5 hours of data (needless to say, I did not get a lot of sleep that night). After pushing it through the C++ code I wrote, and plotting it in MATLAB, I obtained the following plot.
 
-(PLOT)
+<img src="../../assets/BPM_graph.png" alt="my heartbeat while sleeping" width="500" height="200">
 
 Immediately, I noticed that there seemed to be some errant measurements. The excursions past 120 and below 35 BPM, for instance, mostly look to be a single bad reading skewing the rolling average I used. Every once in a while, a small rise up is observable, which my pre-med roommate tells me likely correlates with REM stages. Overall, my heart rate seems to hover between 40 and 50, which seems to be in agreement with my short stay in the hospital. While this seems somewhat low, I asked my dad (a cardiologist), and he assures me that I'll be fine. Overall, I'm pretty happy with how the data turned out, and with the general success of the project. I'm particularly happy that I managed to get the board working on the first spin, especially given that I hadn't used over half of the components on my breadboarded prototype. Note to self: I should made some SMD breakout boards for future prototyping.
 

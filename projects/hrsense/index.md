@@ -54,7 +54,7 @@ This board only has components on one side, all of which are SMD, because I didn
 ##### Battery Board
 I created an entirely separate board for the aforementioned chunky batteries, as having two boards seemed more aesthetically symmetric at the time. If I do a respin with smaller batteries, I might move them onto the same board the second time around. I actually ran into a problem with the battery retainers I bought: once the glider was inserted into the retainer, it was impossible to remove them again. This was, of course, highly irritating. I ended up throwing together a quick CAD model of the retainer/battery, and laser cut my own glider with some leftover acrylic I had. It was precise enough that it could be held in place by the retainer, without getting stuck.
 
-<img src="../../assets/battery_glider.jpg" alt="the laser cut glider + battery" width="500" height="200">
+<img src="../../assets/battery_glider.jpg" alt="the laser cut glider + battery" width="300" height="200">
 
 The battery board also gave me some unique grief in debugging. When I was first trying to power the circuits, for some reason my voltage was only ~1.8V, rather than 6. After about an hour of confusedly probing the board, the batteries, and repeatedly checking the schematic, I found the problem. When designing the battery board, I left a contact for the battery on the board itself (the other side of the battery would contact the retainer). However, I forgot to consider that the soldermask has a thickness of around 0.8 mils. This tiny thickness was preventing contact between my battery and my board, and was in fact forming a parallel plate capacitor of about 43.6 pF. To fix the issue, I just melted on enough solder to make the contact rise above the soldermask, and suddenly the board worked!
 
@@ -90,10 +90,13 @@ In addition, in order to reduce the amount of signal processing needed downstrea
 
 [OpenCV](https://opencv.org/) is an open source library for computer vision, with tons of different features. It offers interfaces in a variety of languages, of which I opted for C++ to refresh my memory. The installation process was quite an ordeal, but I managed to get through it using [a variety](https://www.learnopencv.com/install-opencv3-on-windows/) [of different](https://docs.opencv.org/2.4/doc/tutorials/introduction/windows_install/windows_install.html) resources. I initially intended to use blob tracking to locate the flashing LED, and started on some basic tutorials. However, after viewing test footage of my setup, I realized that there was a much simpler solution (that hopefully had less latency). Because I was trying to record these flashes while sleeping (e.g. at night), there weren't really any sources of IR light other than the flashes. Thus I could simply measure the average brightness of the entire frame, and assuming the flash occupied enough of the screen, the average would rise with the pulses. This was fairly simple to code, but you can view my code on [github](https://github.com/andrewge8622), as well as the code I used to identify the pulses, if you're interested. Armed with fresh batteries, my modded webcam, and my newly assembled boards, I nervously went to sleep.
 
-<video width="320" controls muted>
-  <source src="../../assets/SUCCESSFUL TEST.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video> 
+<figure>
+  <video width="320" controls muted>
+    <source src="../../assets/SUCCESSFUL TEST.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+  </video> 
+  <figcaption>footage of me testing the IR video capture</figcaption>
+</figure>
 
 ### Results
 

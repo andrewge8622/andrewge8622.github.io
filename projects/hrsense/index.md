@@ -21,7 +21,7 @@ Your browser does not support the video tag.
 
 ### Overview
 
-The sensor uses a small piezo to detect heart rate when strapped to my finger. It uses two custom PCBs, worn around the wrist. One is used just for batteries. The other collects the voltage from the piezo, does some basic amplification/thresholding, and triggers a high power infrared LED when a pulse is detected. This infrared flash isn't visible to the human eye, so it won't bother me while I'm trying to sleep, but the signal can be picked up by a modified webcam. Storing 6+ hours of footage and analyzing it manually sounds like an actual punishment, so instead I wrote a basic C++ program using OpenCV to record light intensity in each frame. I then used a combination of C++ and MATLAB to extract pulses from the light intensity data, and plot it across the time I spent asleep.
+The sensor uses a small piezo to detect heart rate when strapped to my finger. It uses two custom PCBs, worn around the wrist. One is used just for batteries. The other collects the voltage from the piezo, does some basic amplification/thresholding, and triggers a high power infrared LED when a pulse is detected. This infrared flash isn't visible to the human eye, so it won't bother me while I'm trying to sleep, but the signal can be picked up by a modified webcam (in the above video, my phone is able to pick up a small amount of IR). Storing 6+ hours of footage and analyzing it manually sounds like an actual punishment, so instead I wrote a basic C++ program using OpenCV to record light intensity in each frame. I then used a combination of C++ and MATLAB to extract pulses from the light intensity data, and plot it across the time I spent asleep.
 
 ### Early Design Decisions
 The first question I always get whenever I mention this project to anyone is "why not just use an Arduino/microcontroller/Fitbit". As I have to explain every time, this project was intended as a design/learning challenge more than a purely functional device. Of course it would be simple to implement this with an Arduino Nano, but where's the fun in that? Subsequently, I decided to keep all of my circuit elements analog.
@@ -32,7 +32,7 @@ For the sake of not needing even more batteries, I opted to use single supply de
 
 ### Circuitry
 
-<img src="../../assets/piezo.jpg" alt="a piezo element" width="500" height="200">
+<img src="../../assets/piezo.jpg" alt="a piezo element" width="300" height="200">
 
 The sensing element is the same type that is often used for guitar pickups or high frequency speakers. It uses the [piezoelectric effect](https://www.nanomotion.com/piezo-ceramic-motor-technology/piezoelectric-effect/), which allows translation between mechanical strain and voltage. Based on my early experimentation, the piezo had a DC offset, so I first put a decoupling capacitor in line with the piezo, and then biased it to half of the supply voltage. That way, the piezo output was centered at VDD/2, allowing amplification in both "directions" even with the single supply. One note for anyone trying to similar projects: I had to bias the piezo with extremely large resistors (in my case, 6.8MΩ for each resistor). I'm not certain, but I think this has something to do with the high impedance of the sensor itself. In any case, using these massive resistors was uniquely interesting, as they were large enough that the measurements picked up by an oscilloscope were warped, as the probe itself probably had an input resistance of 1MΩ. 
 
@@ -54,11 +54,11 @@ This board only has components on one side, all of which are SMD, because I didn
 ##### Battery Board
 I created an entirely separate board for the aforementioned chunky batteries, as having two boards seemed more aesthetically symmetric at the time. If I do a respin with smaller batteries, I might move them onto the same board the second time around. I actually ran into a problem with the battery retainers I bought: once the glider was inserted into the retainer, it was impossible to remove them again. This was, of course, highly irritating. I ended up throwing together a quick CAD model of the retainer/battery, and laser cut my own glider with some leftover acrylic I had. It was precise enough that it could be held in place by the retainer, without getting stuck.
 
-<img src="../../assets/glider.jpg" alt="the laser cut glider + battery" width="500" height="200">
+<img src="../../assets/battery_glider.jpg" alt="the laser cut glider + battery" width="500" height="200">
 
 The battery board also gave me some unique grief in debugging. When I was first trying to power the circuits, for some reason my voltage was only ~1.8V, rather than 6. After about an hour of confusedly probing the board, the batteries, and repeatedly checking the schematic, I found the problem. When designing the battery board, I left a contact for the battery on the board itself (the other side of the battery would contact the retainer). However, I forgot to consider that the soldermask has a thickness of around 0.8 mils. This tiny thickness was preventing contact between my battery and my board, and was in fact forming a parallel plate capacitor of about 43.6 pF. To fix the issue, I just melted on enough solder to make the contact rise above the soldermask, and suddenly the board worked!
 
-<img src="../../assets/battery_board.jpg" alt="the completed board" width="500" height="200">
+<img src="../../assets/battery_board.jpg" alt="the completed board" width="300" height="200">
 
 ### Modding a webcam to see IR
 
@@ -78,7 +78,7 @@ Since the goal of this project is to pick up infrared light flashes, this is obv
     </figure>
     <figure>
       <img src="../../assets/IR_filter.jpg" alt="IR filter" width="400" height="200"/>
-      <figcaption>The IR filter is identifiable by its red tint</figcaption>
+      <figcaption>the IR filter is identifiable by its red tint</figcaption>
     </figure>
 </div>
 
@@ -97,7 +97,7 @@ Your browser does not support the video tag.
 
 All in all, I got about 5.5 hours of data (needless to say, I did not get a lot of sleep that night). After pushing it through the C++ code I wrote, and plotting it in MATLAB, I obtained the following plot.
 
-<img src="../../assets/BPM_graph.png" alt="my heartbeat while sleeping" width="500" height="200">
+<img src="../../assets/BPMgraph.png" alt="my heartbeat while sleeping" width="1000" height="400">
 
 Immediately, I noticed that there seemed to be some errant measurements. The excursions past 120 and below 35 BPM, for instance, mostly look to be a single bad reading skewing the rolling average I used. Every once in a while, a small rise up is observable, which my pre-med roommate tells me likely correlates with REM stages. Overall, my heart rate seems to hover between 40 and 50, which seems to be in agreement with my short stay in the hospital. While this seems somewhat low, I asked my dad (a cardiologist), and he assures me that I'll be fine. Overall, I'm pretty happy with how the data turned out, and with the general success of the project. I'm particularly happy that I managed to get the board working on the first spin, especially given that I hadn't used over half of the components on my breadboarded prototype. Note to self: I should made some SMD breakout boards for future prototyping.
 

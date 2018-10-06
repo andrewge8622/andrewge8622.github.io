@@ -7,15 +7,15 @@ title: Heartbeat Sensor
 
 ### Motivation
 
-During my sophomore year, I spent a night in the hospital for unimportant reasons (*cough exhaustion cough*). During my stay, they had me hooked up to a pulse-ox, which also gave a readout for pulse. This became relevant, because apparently there was a built-in alarm that would go off if a patient's pulse dipped below 45. Mine did this whenever I started to fall asleep, which was not helpful for the whole exhaustion thing.
+During my sophomore year, I spent a night in the hospital after I passed out from exhaustion/dehydration (oops). During my stay, they had me hooked up to a pulse-ox, which also gave a readout for pulse. This became relevant, because apparently there was a built-in alarm that would go off if a patient's pulse dipped below 45 bpm. Mine did this whenever I started to fall asleep, which was not helpful for the whole exhaustion thing. Since then, I've learned to hydrate properly, but I did have one lingering question.
 
-45 is quite low for a heart rate, especially considering I'm not an athlete by any means. I've been wondering since then what my heart rate is like at night, and whether the fact that my HR was so low that night only due to dehydration/exhaustion/starvation/what have you.
+45 is quite low for heart rate, especially considering I'm not an athlete by any means. I've been wondering since then what my heart rate is like at night, and whether it's *normally* so low.
 
 So of course I built a sensor to track it for me! Because buying a Fitbit would be too easy.
 
 ### Overview
 
-The sensor uses a small piezo to detect heart rate when strapped to my finger. It uses two custom PCBs, worn around the wrist. One is used just for batteries. The other collects the voltage from the piezo, does some basic amplification/thresholding, and triggers a high power infrared LED when a pulse is detected. This infrared flash isn't visible to the human eye, so it won't bother me while I'm trying to sleep, but the signal can be picked up by a modified webcam. Storing 6+ hours of footage and analyzing it manually sounds like an actual punishment, so instead I wrote a basic C++ program using OpenCV to record light intensity in each frame, and then used a combination of C++ and MATLAB to extract pulses from the light intensity data, and plot it across the time I spent asleep.
+The sensor uses a small piezo to detect heart rate when strapped to my finger. It uses two custom PCBs, worn around the wrist. One is used just for batteries. The other collects the voltage from the piezo, does some basic amplification/thresholding, and triggers a high power infrared LED when a pulse is detected. This infrared flash isn't visible to the human eye, so it won't bother me while I'm trying to sleep, but the signal can be picked up by a modified webcam. Storing 6+ hours of footage and analyzing it manually sounds like an actual punishment, so instead I wrote a basic C++ program using OpenCV to record light intensity in each frame. I then used a combination of C++ and MATLAB to extract pulses from the light intensity data, and plot it across the time I spent asleep.
 
 ### Early Design Decisions
 The first question I always get whenever I mention this project to anyone is "why not just use an Arduino/microcontroller/Fitbit". As I have to explain every time, this project was intended as a design/learning challenge more than a purely functional device. Of course it would be simple to implement this with an Arduino Nano, but where's the fun in that? Subsequently, I decided to keep all of my circuit elements analog.

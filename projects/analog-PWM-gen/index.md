@@ -15,7 +15,9 @@ Of course, a function generator isn't something that I'll always have on hand, a
 
 <img src="../../assets/square_wave_gen_transparent.png" alt="the circuit" width="500" height="200">
 
-Rewrite this description
+This was actually the circuit that first convinced me that circuits were in fact useful. It was a problem on a final exam I took, and I remember walking out after the exam, being amazed that a circuit had done something other than just change the amplitude of a sine wave. 
+
+The principle of operation is fairly simple. The op amp is set up as a comparator, where the inputs are an RC circuit and a voltage divider. Both the voltage divider and the RC circuit are connected to Vout, thus the capacitor voltage wants to charge/discharge towards Vout, and the voltage divider gives some value between 0 and Vout. When the capacitor passes the value set by the divider, Vout will invert, and the cycle begins again. Because the RC charging takes a consistent amount of time (assuming equal supply rails, and adequate time), Vout will alternate between high and low at a constant frequency, otherwise known as a square wave.
 
 As an aside, this square wave generator was one of my first encounters with non-ideal components. I first built it using the UA471, and found that my square wave generator was in fact producing triangle waves. At first, I was willing to just move on to the third stage, thinking that I had just stumbled into a happy accidental solution. It technically worked in driving the fan, but I found that the peak amplitude of the square wave wasn’t at all stable, which made it completely unsuitable for generating a consistent duty cycle for the PWM signal.
 
@@ -31,7 +33,7 @@ Given that I needed to generate a PWM signal of 20 kHz, this gave me a half-peri
 The theory behind the integrator stage is fairly simple mathematically. There are a couple ways to think about it, but this is the way that makes the most sense to me.
 First off, the current through R1 is fairly obvious, as it’s just Vin/12K. Taking the assumption that no current flows into the input of the op-amp, all current through R1 must also flow through C1. Since we have a virtual ground at the inverting input, we can define current through C1 as C * dVout/dt. Thus Vin/R1 = -C1 * dVout/dt. Vout = 1/RC * integral of Vin dt. Voila! Integration! If we simply consider this for a constant Vin (considering the square wave as piecewise DC chunk), we get that Vout = -t/RC. Thus our square wave will instead generate ramps, and if the period is short enough, we’ll just get triangle waves!
 
-<img src="../../assets/triangle_wave_output_NEW.PNG" alt="simulated output" width="1000" height="300">
+<img src="../../assets/triangle_wave_output_NEW.PNG" alt="simulated output" width="1000" height="200">
 
 ### Basic comparator
 

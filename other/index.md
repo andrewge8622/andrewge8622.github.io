@@ -13,6 +13,7 @@ title: other
 ### Random other things I've made
 
 ### Interesting Youtube channels/websites
+
 <br>[GreatScott](https://www.youtube.com/user/greatscottlab) - A cool channel with weekly(!) projects/hacks. Focused more on circuits, less on microcontrollers.
 <br>[Bitluni's Lab](https://www.youtube.com/user/bitlunislab) - A lot of different things, all pretty cool. Some tutorials focused on ESP32, BLE, etc.
 <br>[Afrotechmods](https://www.youtube.com/user/Afrotechmods) - Really great for beginners in particular, with good explanations of basic electronics and projects.
@@ -28,9 +29,10 @@ title: other
 <br>[MPJA](http://www.mpja.com/)
 
 ### EE Subreddits I subscribe to
+
 <br>In order from least to most "homework help/course choices/career path/how to choose sub-specialty in EE" posts
-<br>https://www.reddit.com/r/PrintedCircuitBoard/
-<br>https://www.reddit.com/r/electronics/
-<br>https://www.reddit.com/r/arduino/
-<br>https://www.reddit.com/r/ElectricalEngineering/
-<br>https://www.reddit.com/r/ECE/
+<br><https://www.reddit.com/r/PrintedCircuitBoard/>
+<br><https://www.reddit.com/r/electronics/>
+<br><https://www.reddit.com/r/arduino/>
+<br><https://www.reddit.com/r/ElectricalEngineering/>
+<br><https://www.reddit.com/r/ECE/>

@@ -8,17 +8,13 @@ title: other
 
 ### [My LinkedIn](https://www.linkedin.com/in/andrew-ge-686b05111/)
 
-### Videos buried on my phone
-
-### Random other things I've made
-
 ### Interesting Youtube channels/websites
 
 <br>[GreatScott](https://www.youtube.com/user/greatscottlab) - A cool channel with weekly(!) projects/hacks. Focused more on circuits, less on microcontrollers.
 <br>[Bitluni's Lab](https://www.youtube.com/user/bitlunislab) - A lot of different things, all pretty cool. Some tutorials focused on ESP32, BLE, etc.
 <br>[Afrotechmods](https://www.youtube.com/user/Afrotechmods) - Really great for beginners in particular, with good explanations of basic electronics and projects.
 <br>[EEVblog](https://www.youtube.com/user/EEVblog) - Much more in depth, engineering questions.
-
+<br>
 <br>[Hackaday](https://hackaday.com/)
 <br>[Hackster](https://www.hackster.io/) 
 <br>[Mindtribe](https://mindtribe.com/blog/) - A cool product design company that has some interesting blog posts.
@@ -27,6 +23,20 @@ title: other
 <br>[Adafruit](https://www.adafruit.com/)
 <br>[Sparkfun](https://www.sparkfun.com/)
 <br>[MPJA](http://www.mpja.com/)
+
+### Videos buried on my phone
+
+<div style=”float:left;width:auto;margin-right:14px;”> <video width="320" controls muted>
+  <source src="../assets/heartbeat_oscope.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>  </div>
+
+<div style=”float:left;width:auto;”> <video width="320" controls muted>
+  <source src="../assets/heartbeat_oscope.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>  </div> <div style=”clear:both;height:1em;”></div>
+
+### Random other things I've made
 
 ### EE Subreddits I subscribe to
 

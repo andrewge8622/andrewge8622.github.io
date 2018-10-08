@@ -69,10 +69,14 @@ Your browser does not support the video tag.
   <source src="../../assets/spine_tester.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-<video width="500" controls>
+<video width="245" controls>
   <source src="../../assets/water_tank.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
+</picture>
+<picture>
+  <img src="../../assets/phone_shelf.png" alt="a quick shelf I threw together to hold my phone on my bedframe" width="245" height="320">
+</picture>
 <br>
 
 

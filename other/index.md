@@ -26,12 +26,16 @@ title: other
 
 ### Videos buried on my phone
 
-<video width="100" controls muted>
-  <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
+<video width="200" controls muted>
+  <source src="../../assets/break_crane.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 
-<video width="100" controls muted>
+<picture width="200">
+  <img src="crane_pic.jpg" alt="crane, pre-destruction" style="width:auto;">
+</picture>
+
+<video width="200" controls muted>
   <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

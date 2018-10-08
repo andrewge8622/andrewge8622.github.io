@@ -74,7 +74,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video> 
 <picture>
-  <img src="../../assets/phone_shelf.png" alt="a quick shelf I threw together to hold my phone on my bedframe" width="245" height="320">
+  <img src="../../assets/phone_shelf.PNG" alt="a quick shelf I threw together to hold my phone on my bedframe" width="245" height="320">
 </picture>
 <br>
 

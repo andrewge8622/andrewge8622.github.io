@@ -47,7 +47,7 @@ Your browser does not support the video tag.
 
 #### Mechanical things
 <picture>
-  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="492">
+  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="493">
 </picture>
 <picture>
   <img src="../../assets/DisplacementNoOverlay.PNG" alt="weight rack simulation" width="245" height="320">
@@ -55,7 +55,7 @@ Your browser does not support the video tag.
 <picture>
   <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction" width="245" height="320">
 </picture>
-<video width="492" controls>
+<video width="493" controls>
   <source src="../../assets/break_crane.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
@@ -66,7 +66,7 @@ Your browser does not support the video tag.
   <img src="../../assets/heatsink.jpg" alt="a custom heatsink design" width="245" height="320">
 </picture>
 
-<iframe src="https://drive.google.com/file/d/1bbbVKo_qalVHkm2Dtd_RK-sHK1iGd3xM/preview" width="492" height="480"></iframe>
+<iframe src="https://drive.google.com/file/d/1bbbVKo_qalVHkm2Dtd_RK-sHK1iGd3xM/preview" width="493"></iframe>
 
 <video width="245" height="400" controls>
   <source src="../../assets/water_tank.mp4" type="video/mp4">

@@ -66,7 +66,7 @@ Your browser does not support the video tag.
   <img src="../../assets/heatsink.jpg" alt="a custom heatsink design" width="245" height="320">
 </picture>
 
-<iframe src="https://drive.google.com/file/d/1bbbVKo_qalVHkm2Dtd_RK-sHK1iGd3xM/preview" width="493"></iframe>
+<iframe src="https://drive.google.com/file/d/1bbbVKo_qalVHkm2Dtd_RK-sHK1iGd3xM/preview" width="493" height="480"></iframe>
 
 <video width="245" height="400" controls>
   <source src="../../assets/water_tank.mp4" type="video/mp4">

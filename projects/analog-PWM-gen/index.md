@@ -13,7 +13,7 @@ Of course, a function generator isn't something that I'll always have on hand, a
 
 ### Square waves (an astable multivibrator)
 
-<img src="../../assets/square_wave_gen_transparent.png" alt="the circuit" width="500" height="200">
+<img src="../../assets/square_wave_gen_transparent.png" alt="the circuit" width="500">
 
 This was actually the circuit that first convinced me that circuits were in fact useful. It was a problem on a final exam I took, and I remember walking out after the exam, being amazed that a circuit had done something other than just change the amplitude of a sine wave. 
 
@@ -26,16 +26,16 @@ Given that I needed to generate a PWM signal of 20 kHz, this gave me a half-peri
 
 ### Integrator
 
-<img src="../../assets/integrator_transparent.png" alt="the circuit" width="500" height="200">
+<img src="../../assets/integrator_transparent.png" alt="the circuit" width="500">
 
 The theory behind the integrator stage is fairly simple mathematically. There are a couple ways to think about it, but this is the way that makes the most sense to me.
 First off, the current through R1 is fairly obvious, as it’s just Vin/12K. Taking the assumption that no current flows into the input of the op-amp, all current through R1 must also flow through C1. Since we have a virtual ground at the inverting input, we can define current through C1 as C * dVout/dt. Thus Vin/R1 = -C1 * dVout/dt. Vout = 1/RC * integral of Vin dt. Voila! Integration! If we simply consider this for a constant Vin (considering the square wave as piecewise DC chunk), we get that Vout = -t/RC. Thus our square wave will instead generate ramps, and if the period is short enough, we’ll just get triangle waves!
 
-<img src="../../assets/square_wave.jpeg" alt="real output" width="1000" height="200">
+<img src="../../assets/square_wave.jpeg" alt="real output" width="500">
 
 ### Basic comparator
 
-<img src="../../assets/comparator_transparent.png" alt="the circuit" width="500" height="200">
+<img src="../../assets/comparator_transparent.png" alt="the circuit" width="500">
 
 The math behind the comparator is pretty trivial, so I’ll skip it. Just note that the comparator, coupled with the triangle wave, will basically take the peaks of the positive triangles, and turn those into rectangular pulses. Or, finally, PWM signals! Thus the duty cycle directly correlates to the reference voltage of the comparator.
 

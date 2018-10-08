@@ -27,11 +27,11 @@ title: other
 ### Random other things I've made
 
 #### Electrical things
-<video width="240" height="400" controls muted>
+<video width="245" height="400" controls muted>
   <source src="../../assets/bar_graph.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-<video width="240" height="400" controls muted>
+<video width="245" height="400" controls muted>
   <source src="../../assets/sassy_LCD.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
@@ -45,25 +45,25 @@ Your browser does not support the video tag.
 
 #### Mechanical things
 <picture>
-  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="498">
+  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="490">
 </picture>
 <picture>
-  <img src="../../assets/DisplacementNoOverlay.PNG" alt="weight rack simulation" width="249">
+  <img src="../../assets/DisplacementNoOverlay.PNG" alt="weight rack simulation" width="245">
 </picture>
 <picture>
-  <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction" width="249">
+  <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction" width="245">
 </picture>
-<video width="498" controls>
+<video width="490" controls>
   <source src="../../assets/break_crane.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 <picture>
-  <img src="../../assets/bottle_opener.jpg" alt="my first time using CNC " width="249">
+  <img src="../../assets/bottle_opener.jpg" alt="my first time using CNC " width="245">
 </picture>
 <picture>
-  <img src="../../assets/heatsink.jpg" alt="a custom heatsink design" width="249">
+  <img src="../../assets/heatsink.jpg" alt="a custom heatsink design" width="245">
 </picture>
-<video width="498" controls>
+<video width="490" controls>
   <source src="../../assets/spine_tester.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

@@ -36,7 +36,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video> 
 <picture width="250">
-  <img src="../../assets/ELE208.jpg" alt="crane, pre-destruction" style="width:auto;">
+  <img src="../../assets/ELE208.jpg" alt="solar cells and transistors fabricated in Princeton's clean room" style="width:auto;">
 </picture>
 <video width="250" controls muted>
   <source src="../../assets/first_solder.mp4" type="video/mp4">
@@ -50,7 +50,7 @@ Your browser does not support the video tag.
 </video> 
 
 <picture width="500">
-  <img src="../../assets/crane_pic.jpg" alt="crane, pre-destruction" style="width:auto;">
+  <img src="../../assets/crane_pic.jpg" alt="crane, pre-destruction" style=”transform:rotate(270deg);”>
 </picture>
 
 

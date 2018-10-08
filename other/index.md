@@ -35,8 +35,8 @@ Your browser does not support the video tag.
   <source src="../../assets/sassy_LCD.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-<picture width="225">
-  <img src="../../assets/ELE208.jpg" alt="solar cells and transistors fabricated in Princeton's clean room">
+<picture>
+  <img src="../../assets/ELE208.jpg" alt="solar cells and transistors fabricated in Princeton's clean room" width="225">
 </picture>
 <video width="225" controls muted>
   <source src="../../assets/first_solder.mp4" type="video/mp4">
@@ -44,15 +44,19 @@ Your browser does not support the video tag.
 </video> 
 
 #### Mechanical things
+<picture>
+  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="500">
+</picture>
+<picture>
+  <img src="../../assets/DisplacementNoOverlay.PNG" alt="weight rack simulation" width="250">
+</picture>
+<picture>
+  <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction" width="250">
+</picture>
 <video width="500" controls muted>
   <source src="../../assets/break_crane.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-
-<picture width="500">
-  <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction">
-</picture>
-
 
 
 ### Random other things I've made

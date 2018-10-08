@@ -27,11 +27,11 @@ title: other
 ### Random other things I've made
 
 #### Electrical things
-<video width="249" controls muted>
+<video width="230" controls muted>
   <source src="../../assets/bar_graph.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-<video width="249" controls muted>
+<video width="230" controls muted>
   <source src="../../assets/sassy_LCD.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

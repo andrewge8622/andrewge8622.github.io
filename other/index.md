@@ -26,12 +26,12 @@ title: other
 
 ### Videos buried on my phone
 
-<video width="320" controls muted>
+<video width="100" controls muted>
   <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 
-<video width="320" controls muted>
+<video width="100" controls muted>
   <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

@@ -24,7 +24,7 @@ As an aside, this square wave generator was one of my first encounters with non-
 After thinking about the problem and reading the datasheet, I read that the slew rate of the UA741 is 0.5V/µs. In case you aren’t familiar with the term (I wasn’t), slew refers to the rate at which an amplifier can “track” an abrupt change in input. 
 Given that I needed to generate a PWM signal of 20 kHz, this gave me a half-period of 25µs. Going from approximately -7.5V to 7.5V, the op amp would take 30µs just to reach the new voltage! This explained my weirdly clipped triangle output. The next day, I dropped by the local electronics store and picked up some LM318 high speed op-amps, which have a typical slew rate of 70V/µs. The resultant waveform was a nice, clean square wave :)
 
-<img src="../../assets/square_wave.jpeg" alt="simulated output" width="1000" height="200">
+<img src="../../assets/square_wave.jpeg" alt="simulated output" height="200">
 
 ### Integrator
 
@@ -43,15 +43,15 @@ The math behind the comparator is pretty trivial, so I’ll skip it. Just note t
 
 <div id="images">
     <figure>
-      <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output" width="400" height="200"/>
+      <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output" width="160" />
       <figcaption>12.5% duty cycle</figcaption>
     </figure>
     <figure>
-      <img src="../../assets/PWM_center_output.PNG" alt="simulated output" width="400" height="200"/>
+      <img src="../../assets/PWM_center_output.PNG" alt="simulated output" width="160" />
       <figcaption>50% duty cycle</figcaption>
     </figure>
     <figure>
-      <img src="../../assets/PWM_75_output.PNG" alt="simulated output" width="400" height="200"/>
+      <img src="../../assets/PWM_75_output.PNG" alt="simulated output" width="160" />
       <figcaption>75% duty cycle</figcaption>
     </figure>
 </div>

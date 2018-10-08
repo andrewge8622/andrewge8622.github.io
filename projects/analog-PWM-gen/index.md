@@ -24,8 +24,6 @@ As an aside, this square wave generator was one of my first encounters with non-
 After thinking about the problem and reading the datasheet, I read that the slew rate of the UA741 is 0.5V/µs. In case you aren’t familiar with the term (I wasn’t), slew refers to the rate at which an amplifier can “track” an abrupt change in input. 
 Given that I needed to generate a PWM signal of 20 kHz, this gave me a half-period of 25µs. Going from approximately -7.5V to 7.5V, the op amp would take 30µs just to reach the new voltage! This explained my weirdly clipped triangle output. The next day, I dropped by the local electronics store and picked up some LM318 high speed op-amps, which have a typical slew rate of 70V/µs. The resultant waveform was a nice, clean square wave :)
 
-<img src="../../assets/square_wave.jpeg" alt="simulated output" height="200">
-
 ### Integrator
 
 <img src="../../assets/integrator_transparent.png" alt="the circuit" width="500" height="200">
@@ -33,7 +31,7 @@ Given that I needed to generate a PWM signal of 20 kHz, this gave me a half-peri
 The theory behind the integrator stage is fairly simple mathematically. There are a couple ways to think about it, but this is the way that makes the most sense to me.
 First off, the current through R1 is fairly obvious, as it’s just Vin/12K. Taking the assumption that no current flows into the input of the op-amp, all current through R1 must also flow through C1. Since we have a virtual ground at the inverting input, we can define current through C1 as C * dVout/dt. Thus Vin/R1 = -C1 * dVout/dt. Vout = 1/RC * integral of Vin dt. Voila! Integration! If we simply consider this for a constant Vin (considering the square wave as piecewise DC chunk), we get that Vout = -t/RC. Thus our square wave will instead generate ramps, and if the period is short enough, we’ll just get triangle waves!
 
-<img src="../../assets/triangle_wave_output_NEW.PNG" alt="simulated output" width="1000" height="200">
+<img src="../../assets/square_wave.jpeg" alt="real output" width="1000" height="200">
 
 ### Basic comparator
 
@@ -43,15 +41,15 @@ The math behind the comparator is pretty trivial, so I’ll skip it. Just note t
 
 <div id="images">
     <figure>
-      <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output" width="320" />
+      <img src="../../assets/PWM_12p5_output.PNG" alt="simulated output" width="400" />
       <figcaption>12.5% duty cycle</figcaption>
     </figure>
     <figure>
-      <img src="../../assets/PWM_center_output.PNG" alt="simulated output" width="320" />
+      <img src="../../assets/PWM_center_output.PNG" alt="simulated output" width="400" />
       <figcaption>50% duty cycle</figcaption>
     </figure>
     <figure>
-      <img src="../../assets/PWM_75_output.PNG" alt="simulated output" width="320" />
+      <img src="../../assets/PWM_75_output.PNG" alt="simulated output" width="400" />
       <figcaption>75% duty cycle</figcaption>
     </figure>
 </div>

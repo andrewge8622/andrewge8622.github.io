@@ -47,7 +47,7 @@ Your browser does not support the video tag.
 
 #### Mechanical things
 <picture>
-  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="490">
+  <img src="../../assets/weight_rack.PNG" alt="weight rack diagram" width="495">
 </picture>
 <picture>
   <img src="../../assets/DisplacementNoOverlay.PNG" alt="weight rack simulation" width="245" height="320">
@@ -55,7 +55,7 @@ Your browser does not support the video tag.
 <picture>
   <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction" width="245" height="320">
 </picture>
-<video width="500" controls>
+<video width="495" controls>
   <source src="../../assets/break_crane.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

@@ -49,8 +49,8 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video> 
 
-<picture width="500" transform: rotate(270deg):>
-  <img src="../../assets/crane_pic.jpg" alt="crane, pre-destruction">
+<picture width="500">
+  <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction">
 </picture>
 
 

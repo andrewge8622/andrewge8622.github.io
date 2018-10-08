@@ -27,18 +27,18 @@ title: other
 ### Random other things I've made
 
 #### Electrical things
-<video width="200" controls muted>
+<video width="225" controls muted>
   <source src="../../assets/bar_graph.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-<video width="200" controls muted>
+<video width="225" controls muted>
   <source src="../../assets/sassy_LCD.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
-<picture width="250">
-  <img src="../../assets/ELE208.jpg" alt="solar cells and transistors fabricated in Princeton's clean room" style="width:auto;">
+<picture width="225">
+  <img src="../../assets/ELE208.jpg" alt="solar cells and transistors fabricated in Princeton's clean room">
 </picture>
-<video width="250" controls muted>
+<video width="225" controls muted>
   <source src="../../assets/first_solder.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

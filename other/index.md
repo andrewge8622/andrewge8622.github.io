@@ -66,7 +66,7 @@ Your browser does not support the video tag.
   <img src="../../assets/heatsink.jpg" alt="a custom heatsink design" width="245" height="320">
 </picture>
 
-<video width="500" controls>
+<video width="500" height="480" controls>
   <source src="../../assets/spine_tester.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

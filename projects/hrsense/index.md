@@ -104,12 +104,12 @@ All in all, I got about 5.5 hours of data (needless to say, I did not get a lot 
 
 <img src="../../assets/BPMgraph.png" alt="my heartbeat while sleeping" width="1000" height="300">
 
-Immediately, I noticed that there seemed to be some errant measurements. The excursions past 120 and below 35 BPM, for instance, mostly look to be a single bad reading skewing the rolling average I used. Every once in a while, a small rise up is observable, which my pre-med roommate tells me likely correlates with REM stages. Overall, my heart rate seems to hover between 40 and 50, which seems to be in agreement with my short stay in the hospital. While this seems somewhat low, I asked my dad (a cardiologist), and he assures me that I'll be fine. Overall, I'm pretty happy with how the data turned out, and with the general success of the project. I'm particularly happy that I managed to get the board working on the first spin, especially given that I hadn't used over half of the components on my breadboarded prototype. Note to self: I should made some SMD breakout boards for future prototyping.
+Immediately, I noticed that there seemed to be some errant measurements. The excursions past 120 and below 35 BPM, for instance, mostly look to be a single bad reading skewing the rolling average I used. Every once in a while, a small rise up is observable, which my pre-med roommate tells me likely correlates with REM stages. Overall, my heart rate seems to hover between 40 and 50, which seems to be in agreement with my short stay in the hospital. While this seems somewhat low, I asked my dad (a cardiologist), and he assures me that I'll be fine. Overall, I'm pretty happy with how the data turned out, and with the general success of the project. I'm particularly happy that I managed to get the board working on the first spin, especially given that I hadn't used over half of the components on my breadboarded prototype. Note to self: I should make some SMD breakout boards for future prototyping.
 
 ### Potential Improvements
 
 While for now I'm going to move on to other projects, if I were to come back to this one, these are some improvements I'd love to implement:
-* Switching to smaller coin cells, possibly rechargeable. Maybe even LiPO?
+* Switching to smaller coin cells, possibly rechargeable. Maybe even LiPo?
 * Improve the processing code to eliminate erroneous pulses, and allow real time tracking of heart rate
 * Optimize the layout further. In an ideal world, I'd love to make this on a flex board that could truly wrap around the wrist
 * Realistically, the piezo is not the best method for picking up from a finger. I'd like to explore either reading from the wrist, or using more traditional pulse-ox methods

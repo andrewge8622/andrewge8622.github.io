@@ -53,7 +53,7 @@ Your browser does not support the video tag.
 <picture>
   <img src="../../assets/crane_pic-ConvertImage.jpg" alt="crane, pre-destruction" width="249">
 </picture>
-<video width="498">
+<video width="498" controls>
   <source src="../../assets/break_crane.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
@@ -63,7 +63,7 @@ Your browser does not support the video tag.
 <picture>
   <img src="../../assets/heatsink.jpg" alt="a custom heatsink design" width="249">
 </picture>
-<video width="498">
+<video width="498" controls>
   <source src="../../assets/spine_tester.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

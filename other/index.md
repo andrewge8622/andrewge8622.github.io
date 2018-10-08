@@ -26,15 +26,15 @@ title: other
 
 ### Videos buried on my phone
 
-<div style=”float:left;width:auto;margin-right:14px;”> <video width="320" controls muted>
-  <source src="../assets/heartbeat_oscope.mp4" type="video/mp4">
+<video width="320" controls muted>
+  <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
 Your browser does not support the video tag.
-</video>  </div>
+</video> 
 
-<div style=”float:left;width:auto;”> <video width="320" controls muted>
-  <source src="../assets/heartbeat_oscope.mp4" type="video/mp4">
+<video width="320" controls muted>
+  <source src="../../assets/heartbeat_oscope.mp4" type="video/mp4">
 Your browser does not support the video tag.
-</video>  </div> <div style=”clear:both;height:1em;”></div>
+</video> 
 
 ### Random other things I've made
 

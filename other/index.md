@@ -28,6 +28,14 @@ title: other
 
 #### Electrical things
 <video width="245" height="400" controls muted>
+  <source src="../../assets/drone_platform.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+<video width="245" height="400" controls muted>
+  <source src="../../assets/line_following_car_Trim.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+<video width="245" height="400" controls muted>
   <source src="../../assets/bar_graph.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 

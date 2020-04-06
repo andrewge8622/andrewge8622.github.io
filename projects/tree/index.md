@@ -10,14 +10,14 @@ title: PCB Ornament
 Just short of a year ago, I read an [article](https://hackaday.com/2019/01/18/oreo-construction-hiding-your-components-inside-the-pcb/) on hackaday about the art of hiding components inside of a multilayer PCB stack. I immediately was convinced that I had to try this at some point, as I personally love the aesthetics of having PCBs visible in products, and figured this method, termed Oreo construction by the article’s author, could easily lead toward having a PCB be the entire product. Sometime around the end of the summer, I started thinking about making some PCB ornaments for friends and family and realized this could be the perfect chance to try out this technique! I decided to make the ornaments in a Christmas tree form factor, and thus my Christmas tree PCB (which I’m calling the Oreo ornament, after the construction method used), was born!
 
 
-<video width="320" controls muted>
+<video width="500" controls muted>
   <source src="../../assets/OrnamentInTreeVideo.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 
-<img src="../../assets/back_view.jpg" alt="back side of PCB" width="300" height="400">
+<img src="../../assets/back_view.jpg" alt="back side of PCB" width="500">
 
-<img src="../../assets/final_still.jpg" alt="front side of PCB, showing HSV fade mode" width="300" height="200">
+<img src="../../assets/final_still.jpg" alt="front side of PCB, showing HSV fade mode" width="500">
 
 ### Construction
 
@@ -25,15 +25,15 @@ The Oreo ornament is composed of a stack of 3 PCBs.
 
 The base layer (1mm thick) has all of the components on it. It uses 10 serially addressable RGB LEDs (APA102s, often called [Dotstars](https://www.adafruit.com/product/3587)), controlled by an STM32 F030F4. It has clips for 3 parallel AAA batteries on its back and boosts the battery voltage up to 3.3V for the microcontroller and 5V for the LEDs. There are 3 buttons exposed to the user that reset the microcontroller, change the LED mode (see below), and adjust the brightness. Other than the buttons, battery clips, and a few breakout pins for the microcontroller, all of the components are hidden from view. Here’s the [schematic](https://andrewge.me/assets/Christmas_Tree_Schematic.pdf) in pdf form.
 
-<img src="../../assets/assembled_view.jpg" alt="view of assembled base PCB" width="300" height="200">
+<img src="../../assets/assembled_view.jpg" alt="view of assembled base PCB" width="500">
 
 The cutout layer (1.6mm thick) has internal cutouts that surround all of the components, including 10 circular cutouts for the LEDs.
 
-<img src="../../assets/2-stack.jpg" alt="base PCB with cutout layer stacked on top" width="300" height="200">
+<img src="../../assets/2-stack.jpg" alt="base PCB with cutout layer stacked on top" width="500">
 
 The front panel layer (1mm thick) has circular “ornament” areas corresponding to the LED cutouts, with soldermask and copper removed so that the LEDs can shine through. This method of diffusing the LEDs’ light is often used in PCB [badges](https://hackaday.com/2019/04/17/the-science-of-reverse-mounted-leds/) with reverse mount LEDs, or sometimes in PCB based [enclosures](https://hackaday.com/2019/09/16/the-benefits-and-pitfalls-of-using-pcbs-as-an-enclosure/).
 
-<img src="../../assets/top_layer_back_view.jpg" alt="back view of front panel" width="300" height="200">
+<img src="../../assets/top_layer_back_view.jpg" alt="back view of front panel" width="500">
 
 The three layers are bonded together using a system of stacked THT and SMT pads, which you can see in the above pictures – no mechanical parts necessary! I simply placed solder paste on the SMT pads of one board, stacked the next layer on top with corresponding THT pads, and shoved a fine tip iron into the via.
 
@@ -51,7 +51,7 @@ I wrote code ([Github repo](https://github.com/andrewge8622/OreoOrnament)) for a
 
 The brightness in each mode can also be adjusted, which is done via the global brightness register of the APA102s. I’m adjusting brightness linearly though, which doesn’t work as well with the breathing patterns as human brightness perception is definitively non-linear. I’m no firmware engineer, and the code definitely doesn’t follow great design practices, but I’m pretty happy with how the overall project functions.
 
-<video width="320" controls muted>
+<video width="500" controls muted>
   <source src="../../assets/AllTreesOn.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
@@ -66,23 +66,23 @@ In order to cut down on assembly time, I opted to have my base PCB mostly assemb
 
 This project was also my first time writing firmware for an STM32, which was a big challenge for me. While using CubeMX was in some ways a huge time saver, it also caused a lot of frustration, including one instance where it deleted all of the source code I had written thus far (painful lesson learned: use version control). I also faced issues with the non-form factor prototypes I was using, caused by a combination of software (improperly implemented LED driver code, accidental deletion of interrupt drivers) and hardware issues.
 
-<video width="320" controls muted>
+<video width="500" controls muted>
   <source src="../../assets/flickering.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 
 However, by December 20th I finally had the code in a workable (though far from final) state!
 
-<video width="320" controls muted>
+<video width="500" controls muted>
   <source src="../../assets/FirstTest.mp4" type="video/mp4">
 Your browser does not support the video tag.
 </video> 
 
 The next night, I was finally able to put together my first fully functional Oreo ornament!
 
-<img src="../../assets/FirstArticle.jpg" alt="first fully assembled Oreo Ornament!" width="300" height="200">
+<img src="../../assets/FirstArticle.jpg" alt="first fully assembled Oreo Ornament!" width="500">
 
 ### Conclusion
-<img src="../../assets/OrnamentInTree.jpg" alt="picture of the ornament hanging in my mom's Christmas tree" width="300" height="200">
+<img src="../../assets/OrnamentInTree.jpg" alt="picture of the ornament hanging in my mom's Christmas tree" width="500">
 
 Overall, I had a ton of fun working on this project, and was really excited to get to try several different things that I’ve wanted to do for a while (Oreo construction, using a PCB as a light diffuser, JLCPCB’s assembly service, writing firmware for the STM32). But the most rewarding part was actually handing out these ornaments to friends, family, and coworkers. I got a really positive response, that made all of the late nights in the lab more than worth it.

@@ -15,7 +15,7 @@ Just short of a year ago, I read an [article](https://hackaday.com/2019/01/18/or
 Your browser does not support the video tag.
 </video> 
 
-<img src="../../assets/back_view.jpg" alt="back side of PCB" width="300" height="200">
+<img src="../../assets/back_view.jpg" alt="back side of PCB" width="300" height="200" style="transform:rotate(90deg);">
 
 <img src="../../assets/final_still.jpg" alt="front side of PCB, showing HSV fade mode" width="300" height="200">
 

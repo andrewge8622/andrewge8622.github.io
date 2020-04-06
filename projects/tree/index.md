@@ -42,12 +42,12 @@ The three layers are bonded together using a system of stacked THT and SMT pads,
 
 I wrote code ([Github repo](https://github.com/andrewge8622/OreoOrnament)) for a few different display modes, but here’s a brief description:
 
-    Statically displays red and gold ornaments (I figured these were the most common Christmas ornament colors).
-    Breathes all red ornaments (I’ve found that breathing animations are quite popular).
-    Breathes all gold ornaments.
-    Breathes red and gold ornaments.
-    Alternates from blue->green->red, switching every few seconds. I originally just had this as a test mode to confirm that all 3 LED channels were working but ended up liking it enough to keep it.
-    Uses the HSV color model to slowly fade LEDs between all colors (hues). This is by far my favorite display mode, as I find it really relaxing to watch as the colors slowly shift from LED to LED. I got the idea to fade using HSV from [this](https://hackaday.com/2018/06/18/buttery-smooth-fades-with-the-power-of-hsv/) post, and borrowed its HSV->RGB conversion code as well.
+1. Statically displays red and gold ornaments (I figured these were the most common Christmas ornament colors).
+2. Breathes all red ornaments (I’ve found that breathing animations are quite popular).
+3. Breathes all gold ornaments.
+4. Breathes red and gold ornaments.
+5. Alternates from blue->green->red, switching every few seconds. I originally just had this as a test mode to confirm that all 3 LED channels were working but ended up liking it enough to keep it.
+6. Uses the HSV color model to slowly fade LEDs between all colors (hues). This is by far my favorite display mode, as I find it really relaxing to watch as the colors slowly shift from LED to LED. I got the idea to fade using HSV from [this](https://hackaday.com/2018/06/18/buttery-smooth-fades-with-the-power-of-hsv/) post, and borrowed its HSV->RGB conversion code as well.
 
 The brightness in each mode can also be adjusted, which is done via the global brightness register of the APA102s. I’m adjusting brightness linearly though, which doesn’t work as well with the breathing patterns as human brightness perception is definitively non-linear. I’m no firmware engineer, and the code definitely doesn’t follow great design practices, but I’m pretty happy with how the overall project functions.
 

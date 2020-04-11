@@ -12,14 +12,16 @@ title: other
 
 <br>[GreatScott](https://www.youtube.com/user/greatscottlab) - A cool channel with weekly(!) projects/hacks. Focused more on circuits, less on microcontrollers.
 <br>[Bitluni's Lab](https://www.youtube.com/user/bitlunislab) - A lot of different things, all pretty cool. Some tutorials focused on ESP32, BLE, etc.
-<br>[Afrotechmods](https://www.youtube.com/user/Afrotechmods) - Really great for beginners in particular, with good explanations of basic electronics and projects.
+<br>[Afrotechmods](https://www.youtube.com/user/Afrotechmods) - Really great for beginners in particular, with good explanations of basic electronics and projects. Sadly not active anymore.
 <br>[EEVblog](https://www.youtube.com/user/EEVblog) - Much more in depth, engineering questions.
+<br>[Big Clive](https://www.youtube.com/user/bigclivedotcom) - Teardowns of consumer products
+<br>[Mike's electric stuff](https://www.youtube.com/user/mikeselectricstuff) - Lots of eclectic electric stuff.
+<br>[Andreas Spiess](https://www.youtube.com/channel/UCu7_D0o48KbfhpEohoP7YSQ) - Mostly IoT related things
 <br>
 <br>[Hackaday](https://hackaday.com/)
 <br>[Hackster](https://www.hackster.io/) 
-<br>[Mindtribe](https://mindtribe.com/blog/) - A cool product design company that has some interesting blog posts.
+<br>[Mindtribe](https://mindtribe.com/blog/) - A cool product design company that has some interesting blog posts <- I work here now!
 <br>[Synapse](https://blog.synapse.com/) - Another cool product design company with a blog. Less hardware specific.
-<br>[hforsten](http://hforsten.com/) - A cool personal website with RF stuff
 <br>[Adafruit](https://www.adafruit.com/)
 <br>[Sparkfun](https://www.sparkfun.com/)
 <br>[MPJA](http://www.mpja.com/)
@@ -89,9 +91,12 @@ Your browser does not support the video tag.
 
 ### EE Subreddits I subscribe to
 
-<br>In order from least to most "homework help/course choices/career path/how to choose sub-specialty in EE" posts
+<br>In order from least to most "homework help/course choices/career path/how to choose sub-specialty in EE/noob here" posts
+<br><https://www.reddit.com/r/nicechips/>
 <br><https://www.reddit.com/r/PrintedCircuitBoard/>
 <br><https://www.reddit.com/r/electronics/>
+<br><https://www.reddit.com/r/diyelectronics/>
+<br><https://www.reddit.com/r/AskElectronics/>
 <br><https://www.reddit.com/r/arduino/>
 <br><https://www.reddit.com/r/ElectricalEngineering/>
 <br><https://www.reddit.com/r/ECE/>

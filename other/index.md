@@ -20,8 +20,6 @@ title: other
 <br>
 <br>[Hackaday](https://hackaday.com/)
 <br>[Hackster](https://www.hackster.io/) 
-<br>[Mindtribe](https://mindtribe.com/blog/) - A cool product design company that has some interesting blog posts <- I work here now!
-<br>[Synapse](https://blog.synapse.com/) - Another cool product design company with a blog. Less hardware specific.
 <br>[Adafruit](https://www.adafruit.com/)
 <br>[Sparkfun](https://www.sparkfun.com/)
 <br>[MPJA](http://www.mpja.com/)

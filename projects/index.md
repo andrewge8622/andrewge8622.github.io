@@ -5,6 +5,12 @@ title: Projects
 
 # PROJECTS
 
+### [Wireless Power Transfer Over PCB Trace Coils](/projects/WPT/)
+
+<img src="../assets/WPT_thumbnail.jpg" alt="picture of the finished assembly, with LEDs operating" width="400">
+
+Custom implementation of resonant wireless power transfer over coils formed from PCB traces. TX side uses H-bridge with gate drivers, driven by STM32F070F6. RX side includes LEDs, hall sensor, temp sensor, etc. and is controlled by STM32G031C6.
+
 ### [Oreo Ornament](/projects/tree/)
 
 <img src="../assets/final_still.jpg" alt="picture of the finished ornament" width="200">

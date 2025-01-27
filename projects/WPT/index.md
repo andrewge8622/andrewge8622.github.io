@@ -10,13 +10,13 @@ For whatever reason, I find Christmas to be a source of inspiration for personal
 
 Ultimately, I realized that this was a terrible idea ([hover for spoilers](./ "PCB trace DCR is much higher than Qi coils")), but I had a lot of fun along the way, and did in fact manage to get the wireless power link up and running.
 
-<video width="640" height="360" controls>
+<video width="360" height="640" controls>
   <source src="../../assets/test_with_scope.mp4" type="video/mp4">
 </video> 
 <br>
 
 ### The Load
-<img src="../../assets/WPT Receiver Schematic.png" alt="RX schematic" width="1360" height="880">
+<img src="../../assets/WPT Receiver Schematic.png" alt="RX schematic" height="880">
 
 Before designing the actual power transfer portion, I first had to decide what the system would actually be powering. Since the eventual goal was to build a persistence of vision display, this would essentially serve as a platform board with LEDs, shift registers to drive them, a hall sensor, and a microcontroller to manage the system. For fun, I also included a temperature sensor (so this could also serve as a room thermometer) and a current sense amplifier, for power diagnostics.
 I wanted to start building something that could display text, so I settled on a 5x8 array of LEDs (5x8 is used on lots of LCDs, and can support most characters). Based on my expected max currents, I came up with a very generous power budget of around 400mA.
@@ -28,7 +28,7 @@ To keep life simple, I decided to keep my coil turns ratio as 1:1. Additionally,
 Calculating the expected inductance of the PCB coils was a very imprecise endeavor. I originally used some online calculators to come up with an initial target of 22uH, but the real value I ended up with was around 52uH (with a DCR of 3 ohms). 
 
 ### The Coil Driver
-<img src="../../assets/Coil Driver Schematic.png" alt="TX schematic" width="1200" height="770">
+<img src="../../assets/Coil Driver Schematic.png" alt="TX schematic" height="770">
 
 Doing a few rounds of LTspice simulations helped uncover some critical issues before I actually committed to the design:
 1. In my simulations I was getting huge current spikes (110A at initial turn-on, and 4A recurring) in the low-side FETs. I eventually tracked this down to excessively fast charging of the bootstrap caps, where adding a 10 ohm resistor reduced that initial spike to 1.1A and the recurring spikes to 600mA.
@@ -54,7 +54,8 @@ At a high-level, everything worked!
 There were two massive issues with this design
 1. Circuit behavior resonance is hard to accurately simulate and predict since it is depends so heavily on real-world parameters (component variations, parasitics, load variations, distance and orientation of coils, etc.) During some of my initial testing, at one point I brought the coils very close together and several components on the board failed simultaneously. I had a suspicion that the current-sense amp was the root cause, based on the fact that it looked like this:
 <img src="../../assets/fried_RX.jpg" alt="CSA of RX board with catastrophic failure" width="430" height="570">
-After assembling a second board without the current sense amp, I was able to measure the voltage coming out of the rectifier, which logged over 60V. From my simulations I was only expecting around 20V at the output of the bridge rectifier. Needless to say, my RX parts were not rated for 70V. In particular, the current sense amp common-mode voltage rating was only 26V. Unsurprisingly, this part failed catastrophically, and appears to have shorted the MCU to input power as well. 
+After assembling a second board without the current sense amp, I was able to measure the voltage coming out of the rectifier, which logged over 60V. From my simulations I was only expecting around 20V at the output of the bridge rectifier. Needless to say, my RX parts were not rated for 70V. In particular, the current sense amp common-mode voltage rating was only 26V. Unsurprisingly, this part failed catastrophically, and appears to have shorted the MCU to input power as well.
+
 2. PCB traces (at least at 1oz copper) have much higher DCR than a commercial Qi-coil made of Litz wire (3 ohms vs ~500mOhm). Additionally, I was often testing at slightly greater distances than Qi would use, decreasing the coil coupling and requiring ever more current at the TX side. The combination of these factors meant that I was dissipating a lot of heat in the TX coil. How much, you ask? Based on FLIR captures, at an input power of 1.6A, my coil was hitting peak temperatures above 200°C  (compared to only 37°C in the RX coil). Unfortunately I couldn't calculate efficiency due to issue 1.
 <img src="../../assets/TX_COIL_FLIR.jpg" alt="max temp measured on TX coil" width="320" height="240">
 This is way above the typical ~130°C for FR4 glass transition temperature, so I imagine that if I left the board running for any significant duration, the coil would likely start to warp and delaminate. 

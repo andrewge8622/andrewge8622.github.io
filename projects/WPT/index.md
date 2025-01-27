@@ -16,7 +16,7 @@ Ultimately, I realized that this was a terrible idea ([hover for spoilers](./ "P
 <br>
 
 ### The Load
-<img src="../../assets/WPT Receiver Schematic.png" alt="RX schematic" height="880">
+<img src="../../assets/WPT Receiver Schematic.png" alt="RX schematic" width="640">
 
 Before designing the actual power transfer portion, I first had to decide what the system would actually be powering. Since the eventual goal was to build a persistence of vision display, this would essentially serve as a platform board with LEDs, shift registers to drive them, a hall sensor, and a microcontroller to manage the system. For fun, I also included a temperature sensor (so this could also serve as a room thermometer) and a current sense amplifier, for power diagnostics.
 I wanted to start building something that could display text, so I settled on a 5x8 array of LEDs (5x8 is used on lots of LCDs, and can support most characters). Based on my expected max currents, I came up with a very generous power budget of around 400mA.
@@ -28,7 +28,7 @@ To keep life simple, I decided to keep my coil turns ratio as 1:1. Additionally,
 Calculating the expected inductance of the PCB coils was a very imprecise endeavor. I originally used some online calculators to come up with an initial target of 22uH, but the real value I ended up with was around 52uH (with a DCR of 3 ohms). 
 
 ### The Coil Driver
-<img src="../../assets/Coil Driver Schematic.png" alt="TX schematic" height="770">
+<img src="../../assets/Coil Driver Schematic.png" alt="TX schematic" width="640">
 
 Doing a few rounds of LTspice simulations helped uncover some critical issues before I actually committed to the design:
 1. In my simulations I was getting huge current spikes (110A at initial turn-on, and 4A recurring) in the low-side FETs. I eventually tracked this down to excessively fast charging of the bootstrap caps, where adding a 10 ohm resistor reduced that initial spike to 1.1A and the recurring spikes to 600mA.

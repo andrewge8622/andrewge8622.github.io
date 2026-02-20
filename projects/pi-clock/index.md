@@ -35,7 +35,7 @@ Most of these drivers are relatively trivial. The one unique feature worth expla
 
 #### Power Conditioning
 
-The button boards are connected to the MAX5456 chip, which is a digital potentiometer actually specifically designed for use with audio. It has a logarithmic taper, as opposed to linear, which means that the volume adjustment is much more intuitive for hearing (the human ear works logarithmically). In addition, it has a mute button, and balance function (to shift the sound distribution from side-to-side). Unlike many other digipots, the MAX5456 (and 5457) is incremented not through SPI or I2C, but through a push button interface. It even includes automatic debouncing! All in all, it's fantastic for volume control applications. 
+Force update. The button boards are connected to the MAX5456 chip, which is a digital potentiometer actually specifically designed for use with audio. It has a logarithmic taper, as opposed to linear, which means that the volume adjustment is much more intuitive for hearing (the human ear works logarithmically). In addition, it has a mute button, and balance function (to shift the sound distribution from side-to-side). Unlike many other digipots, the MAX5456 (and 5457) is incremented not through SPI or I2C, but through a push button interface. It even includes automatic debouncing! All in all, it's fantastic for volume control applications. 
 
 The MAX5456 is actually the first chip I've had to put on a board without first testing its function (the package is a QSSOP, which I couldn't find a breakout board for). Needless to say, I was extremely excited when it first worked.
 
